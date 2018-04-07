@@ -1,4 +1,4 @@
-package com.example.luciano.red;
+package com.example.luciano.red.fachada;
 
 import com.example.luciano.red.negocio.NegocioCliente;
 import com.example.luciano.red.negocio.NegocioPergunta;
@@ -19,6 +19,20 @@ public class Fachada {
     private NegocioPergunta negocioPergunta;
     private NegocioPesquisa negocioPesquisa;
 
+    private static Fachada mySelf;
+
+    public Fachada() {
+        this.negocioCliente = new NegocioCliente();
+        this.negocioPergunta = new NegocioPergunta();
+        this.negocioPesquisa = new NegocioPesquisa();
+    }
+
+    public static Fachada getInstance(){
+        if(mySelf == null){
+            mySelf = new Fachada();
+        }
+        return mySelf;
+    }
 
     public void cadastrarCliente(Cliente c){
         negocioCliente.cadastrarCliente(c);

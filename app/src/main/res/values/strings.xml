@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RED</string>
+    <string name="btAuditoria_name">Auditoria</string>
+    <string name="caixaPesquisaCliente">código/nome</string>
 </resources>
