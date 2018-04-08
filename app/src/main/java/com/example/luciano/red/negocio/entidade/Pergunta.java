@@ -1,6 +1,6 @@
 package com.example.luciano.red.negocio.entidade;
 
-public class Pergunta {
+public abstract class Pergunta {
 
     private int id;
     private String pergunta;
