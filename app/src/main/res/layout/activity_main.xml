@@ -7,7 +7,6 @@
     tools:context="com.example.luciano.red.MainActivity">
 
     <LinearLayout
-        android:id="@+id/layoutPrincipal"
         android:layout_width="match_parent"
         android:layout_height="582dp"
         android:background="@drawable/vermelhodegradepp"

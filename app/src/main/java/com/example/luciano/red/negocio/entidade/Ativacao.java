@@ -5,7 +5,7 @@ package com.example.luciano.red.negocio.entidade;
  */
 
 public class Ativacao extends Pergunta {
-    
+
     public Ativacao(String pergunta, double pontuacao, TipoClienteEnum tipoCliente, TipoPerguntaEnum tipoPergunta) {
         super(pergunta, pontuacao, tipoCliente, tipoPergunta);
     }

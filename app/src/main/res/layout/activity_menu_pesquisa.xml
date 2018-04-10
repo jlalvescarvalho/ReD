@@ -7,7 +7,6 @@
     tools:context="com.example.luciano.red.MenuPesquisaActivity">
 
     <LinearLayout
-        android:id="@+id/layoutMenuPesquisa"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@drawable/fundo_degrade"

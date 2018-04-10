@@ -44,4 +44,7 @@ public abstract class Pergunta {
     public String toString() {
         return this.pergunta+" ";
     }
+
+
+
 }
