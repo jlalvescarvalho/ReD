@@ -30,8 +30,8 @@ public class ClienteActivity extends AppCompatActivity {
         btSearch = findViewById(R.id.btSearch);
         listViewCliente = findViewById(R.id.lstViewCliente);
         ArrayList<Cliente> clientes = fachada.getInstance().recuperarTodosClientes();
-        ArrayAdapter<Cliente> AdapterClientes = new ArrayAdapter<Cliente>(ClienteActivity.this, android.R.layout.simple_expandable_list_item_2);
-
+        ArrayAdapter<Cliente> AdapterClientes = new ArrayAdapter<Cliente>(ClienteActivity.this, android.R.layout.simple_expandable_list_item_2, clientes);
+        listViewCliente.setAdapter(AdapterClientes);
         listViewCliente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

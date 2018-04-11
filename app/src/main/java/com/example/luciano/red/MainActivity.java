@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button btAuditoria;
+    private Button btDados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +17,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btAuditoria = findViewById(R.id.btAuditoria);
+        btDados = findViewById(R.id.btDados);
     }
 
-    public void OnClick(View view){
+    public void OnClickBtAuditoria(View view){
         Intent it = new Intent(this, ClienteActivity.class);
+        startActivity(it);
+    }
+    public void OnClickBtDados(View view){
+        Intent it = new Intent(this, DadosActivity.class);
         startActivity(it);
     }
 }

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">RED</string>
     <string name="btAuditoria_name">Auditoria</string>
+    <string name="btDados_name">Dados</string>
+    <string name="btClientes_name">Clientes</string>
+    <string name="btPerguntas_name">Perguntas</string>
+    <string name="btAdicionar_menu">Add</string>
+    <string name="btImportar_menu">Importar</string>
+    <string name="btApagar_menu">Apagar Tudo</string>
 </resources>

@@ -27,6 +27,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DadosActivity"
+                  android:label="Dados"/>
+        <activity android:name=".CrudClienteActivity"
+                  android:label="Clientes"/>
+        <activity android:name=".CrudPerguntasActivity"
+                  android:label="Perguntas">
+
+        </activity>
     </application>
 
 </manifest>

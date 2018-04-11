@@ -1,5 +1,7 @@
 package com.example.luciano.red;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,11 +19,15 @@ public class MenuPesquisaActivity extends AppCompatActivity {
             "SOVI"
 
     };
+
     int [] imageId = {
             R.drawable.cocacola_newcoca_sku,
             R.drawable.coca_cola_ativacao,
             R.drawable.coca_coletiva_produtos_sovi
     };
+
+    Object [] telas = {SKUActivity.class};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +40,9 @@ public class MenuPesquisaActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(MenuPesquisaActivity.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent(MenuPesquisaActivity.this, (Class<Activity>) telas[position]);
+                startActivity(it);
 
             }
         });
