@@ -16,10 +16,6 @@ public abstract class Pergunta {
         this.tipoPergunta = tipoPergunta;
     }
 
-    public void importar(){
-
-    }
-
     public double getPontuacao() {
         return pontuacao;
     }
