@@ -1,7 +1,7 @@
 package com.example.luciano.red.negocio;
 
 import com.example.luciano.red.negocio.entidade.Cliente;
-import com.example.luciano.red.negocio.entidade.Pergunta;
+import com.example.luciano.red.negocio.entidade.Auditoria;
 import com.example.luciano.red.negocio.entidade.Pesquisa;
 import com.example.luciano.red.repositorio.RepositorioPesquisa;
 
@@ -27,13 +27,13 @@ public class NegocioPesquisa {
         return mySelf;
     }
 
-    public void cadastrarPesquisa(ArrayList<Pergunta> listaPerguntas, Cliente cliente){
-        for(Pergunta p: listaPerguntas){
+    public void cadastrarPesquisa(ArrayList<Auditoria> listaAuditorias, Cliente cliente){
+        for(Auditoria p: listaAuditorias){
             if(!p.getResposta()){
                 p.setPontuacao(0.0);
             }
         }
-        Pesquisa pesquisa = new Pesquisa(listaPerguntas,cliente);
+        Pesquisa pesquisa = new Pesquisa(listaAuditorias,cliente);
         repositorioPesquisa.adicionar(pesquisa);
     }
 

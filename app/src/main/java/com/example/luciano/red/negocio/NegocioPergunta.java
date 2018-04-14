@@ -1,6 +1,6 @@
 package com.example.luciano.red.negocio;
 
-import com.example.luciano.red.negocio.entidade.Pergunta;
+import com.example.luciano.red.negocio.entidade.Auditoria;
 import com.example.luciano.red.repositorio.RepositorioPergunta;
 
 import java.util.ArrayList;
@@ -25,17 +25,17 @@ public class NegocioPergunta {
         return mySelf;
     }
 
-    public void adicionarPergunta(Pergunta pergunta){
-        repositorioPergunta.adicionarPergunta(pergunta);
+    public void adicionarPergunta(Auditoria auditoria){
+        repositorioPergunta.adicionarPergunta(auditoria);
     }
 
-    public void adicionarVariasPerguntas(ArrayList<Pergunta> lista){
-        for(Pergunta p: lista){
+    public void adicionarVariasPerguntas(ArrayList<Auditoria> lista){
+        for(Auditoria p: lista){
             repositorioPergunta.adicionarPergunta(p);
         }
     }
 
-    public ArrayList<Pergunta> recuperarTodas(){
+    public ArrayList<Auditoria> recuperarTodas(){
         return repositorioPergunta.recuperarTodaPerguntas();
     }
 }

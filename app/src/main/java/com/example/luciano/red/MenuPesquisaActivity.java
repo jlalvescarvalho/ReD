@@ -16,17 +16,21 @@ public class MenuPesquisaActivity extends AppCompatActivity {
     String [] web = {
             "SKU",
             "Ativação",
-            "SOVI"
+            "SOVI",
+            "GDM",
+            "Preço"
 
     };
 
     int [] imageId = {
             R.drawable.cocacola_newcoca_sku,
             R.drawable.coca_cola_ativacao,
-            R.drawable.coca_coletiva_produtos_sovi
+            R.drawable.coca_coletiva_produtos_sovi,
+            R.drawable.gdm,
+            R.drawable.preco
     };
 
-    Object [] telas = {SKUActivity.class};
+    Object [] telas = {SKUActivity.class, AtivacaoActivity.class, SoviActivity.class, GDMActivity.class, precoActivity.class};
 
 
     @Override

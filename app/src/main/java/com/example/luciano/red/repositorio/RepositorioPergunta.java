@@ -1,6 +1,6 @@
 package com.example.luciano.red.repositorio;
 
-import com.example.luciano.red.negocio.entidade.Pergunta;
+import com.example.luciano.red.negocio.entidade.Auditoria;
 
 import java.util.ArrayList;
 
@@ -10,18 +10,18 @@ import java.util.ArrayList;
 
 public class RepositorioPergunta {
 
-    private ArrayList<Pergunta> listaPerguntas;
+    private ArrayList<Auditoria> listaAuditorias;
 
     public RepositorioPergunta() {
-        this.listaPerguntas = new ArrayList<>();
+        this.listaAuditorias = new ArrayList<>();
     }
 
-    public void adicionarPergunta(Pergunta p){
-        this.listaPerguntas.add(p);
+    public void adicionarPergunta(Auditoria p){
+        this.listaAuditorias.add(p);
     }
 
-    public Pergunta recuperarPergunta(int id) {
-        for(Pergunta p: listaPerguntas){
+    public Auditoria recuperarPergunta(int id) {
+        for(Auditoria p: listaAuditorias){
             if(p.getId() == id){
                 return p;
             }
@@ -29,18 +29,18 @@ public class RepositorioPergunta {
         return null;
     }
 
-    public void atualizarPergunta(int indice, Pergunta p){
-        this.listaPerguntas.set(indice, p);
+    public void atualizarPergunta(int indice, Auditoria p){
+        this.listaAuditorias.set(indice, p);
     }
 
 
-    public void excluirPergunta(Pergunta p){
-        if(listaPerguntas.contains(p)){
-            listaPerguntas.remove(p);
+    public void excluirPergunta(Auditoria p){
+        if(listaAuditorias.contains(p)){
+            listaAuditorias.remove(p);
         }
     }
 
-    public ArrayList<Pergunta> recuperarTodaPerguntas(){
-        return this.listaPerguntas;
+    public ArrayList<Auditoria> recuperarTodaPerguntas(){
+        return this.listaAuditorias;
     }
 }

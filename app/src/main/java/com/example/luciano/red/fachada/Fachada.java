@@ -4,7 +4,7 @@ import com.example.luciano.red.negocio.NegocioCliente;
 import com.example.luciano.red.negocio.NegocioPergunta;
 import com.example.luciano.red.negocio.NegocioPesquisa;
 import com.example.luciano.red.negocio.entidade.Cliente;
-import com.example.luciano.red.negocio.entidade.Pergunta;
+import com.example.luciano.red.negocio.entidade.Auditoria;
 import com.example.luciano.red.negocio.entidade.Pesquisa;
 
 import java.util.ArrayList;
@@ -44,24 +44,24 @@ public class Fachada {
 
     //----------------------
 
-    public void cadastrarPergunta(Pergunta pergunta){
-       negocioPergunta.adicionarPergunta(pergunta);
+    public void cadastrarPergunta(Auditoria auditoria){
+       negocioPergunta.adicionarPergunta(auditoria);
     }
 
-    public void cadastrarVariasPerguntas(ArrayList<Pergunta> lista){
-        for(Pergunta p: lista){
+    public void cadastrarVariasPerguntas(ArrayList<Auditoria> lista){
+        for(Auditoria p: lista){
             negocioPergunta.adicionarPergunta(p);
         }
     }
 
-    public ArrayList<Pergunta> recuperarTodasPerguntas(){
+    public ArrayList<Auditoria> recuperarTodasPerguntas(){
         return negocioPergunta.recuperarTodas();
     }
 
     //------------------------
 
-    public void cadastrarPesquisa(ArrayList<Pergunta> listaPerguntas, Cliente cliente){
-        negocioPesquisa.cadastrarPesquisa(listaPerguntas, cliente);
+    public void cadastrarPesquisa(ArrayList<Auditoria> listaAuditorias, Cliente cliente){
+        negocioPesquisa.cadastrarPesquisa(listaAuditorias, cliente);
     }
 
     public Pesquisa recuperarPesquisa(int id){

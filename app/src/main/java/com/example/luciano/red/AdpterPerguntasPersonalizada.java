@@ -1,15 +1,13 @@
 package com.example.luciano.red;
 
 import android.app.Activity;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.luciano.red.negocio.entidade.Pergunta;
+import com.example.luciano.red.negocio.entidade.Auditoria;
 
 import java.util.ArrayList;
 
@@ -19,40 +17,40 @@ import java.util.ArrayList;
 
 public class AdpterPerguntasPersonalizada extends BaseAdapter{
 
-    private final ArrayList<Pergunta> perguntas;
+    private final ArrayList<Auditoria> auditorias;
     private final Activity act;
 
-    public AdpterPerguntasPersonalizada(ArrayList<Pergunta> perguntas, Activity act) {
-        this.perguntas = perguntas;
+    public AdpterPerguntasPersonalizada(ArrayList<Auditoria> auditorias, Activity act) {
+        this.auditorias = auditorias;
         this.act = act;
     }
 
     @Override
     public int getCount() {
-        return perguntas.size();
+        return auditorias.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return perguntas.get(i);
+        return auditorias.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return perguntas.get(i).getId();
+        return auditorias.get(i).getId();
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = act.getLayoutInflater().inflate(R.layout.layout_item_pergunta, viewGroup, false);
-        Pergunta pergunta = perguntas.get(i);
+        Auditoria auditoria = auditorias.get(i);
 
         //pegando as referencias da view
         TextView txtPergunta = (TextView)v.findViewById(R.id.txt_perguta);
         final Button btResposta = (Button)v.findViewById(R.id.btResposta);
 
         //populando view
-        txtPergunta.setText(pergunta.getPergunta());
+        txtPergunta.setText(auditoria.getPergunta());
 
         btResposta.setOnClickListener(new View.OnClickListener() {
             int cont = 0;

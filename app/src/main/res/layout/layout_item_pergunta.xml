@@ -9,13 +9,15 @@
         android:id="@+id/txt_perguta"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_weight="1" />
+        android:layout_marginTop="17dp"
+        android:layout_weight="1"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btResposta"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="17dp"
-        android:layout_weight="0.1" />
+        android:layout_weight="0.3" />
 
 </LinearLayout>

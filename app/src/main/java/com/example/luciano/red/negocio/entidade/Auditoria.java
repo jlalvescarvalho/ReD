@@ -1,6 +1,6 @@
 package com.example.luciano.red.negocio.entidade;
 
-public abstract class Pergunta {
+public abstract class Auditoria {
 
     private int id;
     private String pergunta;
@@ -9,7 +9,7 @@ public abstract class Pergunta {
     private TipoClienteEnum tipoCliente;
     private TipoPerguntaEnum tipoPergunta;
 
-    public Pergunta(String pergunta, double pontuacao, TipoClienteEnum tipoCliente, TipoPerguntaEnum tipoPergunta) {
+    public Auditoria(String pergunta, double pontuacao, TipoClienteEnum tipoCliente, TipoPerguntaEnum tipoPergunta) {
         this.pergunta = pergunta;
         this.pontuacao = pontuacao;
         this.tipoCliente = tipoCliente;

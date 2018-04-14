@@ -10,12 +10,12 @@ import java.util.Date;
 public class Pesquisa {
 
     private int id;
-    private ArrayList<Pergunta> listaPerguntas;
+    private ArrayList<Auditoria> listaAuditorias;
     private Cliente cliente;
     private Date data;
 
-    public Pesquisa(ArrayList<Pergunta> listaPerguntas, Cliente cliente) {
-        this.listaPerguntas = listaPerguntas;
+    public Pesquisa(ArrayList<Auditoria> listaAuditorias, Cliente cliente) {
+        this.listaAuditorias = listaAuditorias;
         this.cliente = cliente;
         this.data = new Date();
     }
@@ -28,8 +28,8 @@ public class Pesquisa {
         return cliente;
     }
 
-    public ArrayList<Pergunta> getListaPerguntas() {
-        return listaPerguntas;
+    public ArrayList<Auditoria> getListaAuditorias() {
+        return listaAuditorias;
     }
 
     public int getId() {

@@ -9,24 +9,22 @@ import com.example.luciano.red.negocio.entidade.Auditoria;
 
 import java.util.ArrayList;
 
-public class SKUActivity extends AppCompatActivity {
+public class AtivacaoActivity extends AppCompatActivity {
+
     private Fachada fachada;
-    private ListView listViewPerguntas;
+    private ListView listViewPerguntasAtivacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sku);
+        setContentView(R.layout.activity_ativacao);
+
         fachada = new Fachada();
         ArrayList<Auditoria> lista_auditorias = fachada.recuperarTodasPerguntas();
-        listViewPerguntas = (ListView) findViewById(R.id.listPerguntasSKU);
+        listViewPerguntasAtivacao = (ListView) findViewById(R.id.listViewAtivacao);
 
         AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_auditorias, this);
 
-        listViewPerguntas.setAdapter(listaPersonalizada);
-
-
+        listViewPerguntasAtivacao.setAdapter(listaPersonalizada);
     }
-
-
 }
