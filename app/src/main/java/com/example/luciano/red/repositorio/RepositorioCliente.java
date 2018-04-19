@@ -8,6 +8,9 @@ public class RepositorioCliente {
 
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
 
+    public RepositorioCliente() {
+        this.listaClientes = new ArrayList<>();
+    }
 
     public void cadastrar(Cliente cliente){
         this.listaClientes.add(cliente);
@@ -38,5 +41,9 @@ public class RepositorioCliente {
             }
         }
         return 1;
+    }
+
+    public void deletarTudo() {
+        this.listaClientes = new ArrayList<>();
     }
 }

@@ -8,8 +8,10 @@ public abstract class Auditoria {
     private boolean resposta;
     private TipoClienteEnum tipoCliente;
     private TipoPerguntaEnum tipoPergunta;
+    private int cont = 0;
 
     public Auditoria(String pergunta, double pontuacao, TipoClienteEnum tipoCliente, TipoPerguntaEnum tipoPergunta) {
+        this.id = ++cont;
         this.pergunta = pergunta;
         this.pontuacao = pontuacao;
         this.tipoCliente = tipoCliente;

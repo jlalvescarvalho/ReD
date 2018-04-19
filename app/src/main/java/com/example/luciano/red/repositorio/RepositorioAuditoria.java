@@ -8,11 +8,11 @@ import java.util.ArrayList;
  * Created by luciano on 04/04/2018.
  */
 
-public class RepositorioPergunta {
+public class RepositorioAuditoria {
 
     private ArrayList<Auditoria> listaAuditorias;
 
-    public RepositorioPergunta() {
+    public RepositorioAuditoria() {
         this.listaAuditorias = new ArrayList<>();
     }
 
@@ -42,5 +42,18 @@ public class RepositorioPergunta {
 
     public ArrayList<Auditoria> recuperarTodaPerguntas(){
         return this.listaAuditorias;
+    }
+
+    public void deletarTudo(){
+        listaAuditorias = new ArrayList<>();
+    }
+
+    public void deletarAuditoria(int id){
+        for(Auditoria p: listaAuditorias){
+            if(p.getId() == id){
+                listaAuditorias.remove(p);
+            }
+        }
+
     }
 }

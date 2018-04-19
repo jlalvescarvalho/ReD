@@ -16,9 +16,6 @@ public class Cliente {
         this.subCanal = subCanal;
     }
 
-    public Cliente() {
-    }
-
     public int getCodigo() {
         return codigo;
     }
@@ -61,6 +58,6 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Codigo: "+this.codigo+"  Nome: "+this.nome+"  Sub-Canal: "+this.subCanal;
+        return ""+this.codigo+" |  "+this.nome;
     }
 }

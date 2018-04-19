@@ -4,12 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.luciano.red.GDMActivity">
 
     <ListView
         android:id="@+id/listViewGMD"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/bt_salvar_gdm"
+        android:layout_width="100dp"
+        android:layout_gravity="right"
+        android:layout_height="wrap_content"
+        android:text="@string/btSalvar" />
+
 </LinearLayout>

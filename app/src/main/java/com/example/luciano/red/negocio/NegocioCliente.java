@@ -36,4 +36,8 @@ public class NegocioCliente {
     public ArrayList<Cliente> recuperarTodos(){
         return repositorioCliente.recuperarTodos();
     }
+
+    public void deletarTudo() {
+        repositorioCliente.deletarTudo();
+    }
 }

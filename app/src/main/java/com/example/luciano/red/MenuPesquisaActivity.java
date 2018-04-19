@@ -15,7 +15,7 @@ public class MenuPesquisaActivity extends AppCompatActivity {
 
     String [] web = {
             "SKU",
-            "Ativação",
+            "Ativacao",
             "SOVI",
             "GDM",
             "Preço"

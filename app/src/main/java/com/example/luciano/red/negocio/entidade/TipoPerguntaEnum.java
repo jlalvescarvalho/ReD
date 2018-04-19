@@ -6,5 +6,5 @@ package com.example.luciano.red.negocio.entidade;
 
 public enum TipoPerguntaEnum {
 
-    Portifólio, ativação, sovi, preco, GDM;
+    Portifolio, Ativacao, Sovi, Preco, GDM;
 }

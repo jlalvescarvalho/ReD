@@ -6,15 +6,15 @@ package com.example.luciano.red.negocio.entidade;
 
 public enum TipoClienteEnum {
 
-    AS1a4(524), mercearia(39), lanchonete(534), bar(164), restaurante(525), conveniencia(0.0), atacado(11);
+    AS1a4(524), mercearia(39), lanchonete(534), bar(164), restaurante(525), conveniencia(32), atacado(11);
 
-    private final double subcanal;
+    private final int subcanal;
 
-    private TipoClienteEnum(double subcanal){
+    private TipoClienteEnum(int subcanal){
         this.subcanal = subcanal;
     }
 
-    public double getSubcanal(){
+    public int getSubcanal(){
         return subcanal;
     }
 

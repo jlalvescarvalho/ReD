@@ -7,4 +7,12 @@
     <string name="btAdicionar_menu">Add</string>
     <string name="btImportar_menu">Importar</string>
     <string name="btApagar_menu">Apagar Tudo</string>
+    <string name="edt_pergunta_hint">Pergunta</string>
+    <string name="edt_pontuacao_hint">Pntuação para dessa pergunda</string>
+    <string name="btSalvar">Salvar</string>
+    <string name="title_activity_cliente">ClienteActivity</string>
+    <string name="edt_codigo_hint">Código</string>
+    <string name="edt_nome_hint">Razão social</string>
+    <string name="edt_logradouro_hint">Endereço</string>
+    <string name="bt_cancelar">Cancelar</string>
 </resources>

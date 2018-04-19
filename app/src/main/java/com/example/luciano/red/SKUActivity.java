@@ -17,8 +17,7 @@ public class SKUActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sku);
-        fachada = new Fachada();
-        ArrayList<Auditoria> lista_auditorias = fachada.recuperarTodasPerguntas();
+        ArrayList<Auditoria> lista_auditorias = Fachada.getInstance().recuperarTodasPerguntas();
         listViewPerguntas = (ListView) findViewById(R.id.listPerguntasSKU);
 
         AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_auditorias, this);

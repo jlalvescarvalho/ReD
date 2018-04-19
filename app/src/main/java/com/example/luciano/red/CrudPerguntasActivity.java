@@ -15,14 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.luciano.red.fachada.Fachada;
-import com.example.luciano.red.negocio.entidade.Ativacao;
-import com.example.luciano.red.negocio.entidade.GDM;
 import com.example.luciano.red.negocio.entidade.Auditoria;
-import com.example.luciano.red.negocio.entidade.Preco;
-import com.example.luciano.red.negocio.entidade.SKU;
-import com.example.luciano.red.negocio.entidade.Sovi;
-import com.example.luciano.red.negocio.entidade.TipoClienteEnum;
-import com.example.luciano.red.negocio.entidade.TipoPerguntaEnum;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,7 +28,6 @@ public class CrudPerguntasActivity extends AppCompatActivity {
     private ImageButton imgSearch;
     private EditText edtPergunta;
     private ListView lstPerguntas;
-    private Fachada fachada;
     private static final int READ_REQUEST_CODE = 42;
 
 
@@ -45,7 +37,6 @@ public class CrudPerguntasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_perguntas);
 
-        fachada = new Fachada();
         imgSearch = (ImageButton)findViewById(R.id.imgSearchPergunta);
         edtPergunta = (EditText)findViewById(R.id.edt_pergunta);
         lstPerguntas = (ListView)findViewById(R.id.lstPerguntas);
@@ -56,51 +47,14 @@ public class CrudPerguntasActivity extends AppCompatActivity {
 
     public void preencherListView(){
 
-        ArrayList<Auditoria> listaAuditorias = fachada.recuperarTodasPerguntas();
+        ArrayList<Auditoria> listaAuditorias = Fachada.getInstance().recuperarTodasPerguntas();
         ArrayAdapter<Auditoria> adapterPerguntas = new ArrayAdapter<Auditoria>(this,android.R.layout.simple_list_item_1, listaAuditorias);
         lstPerguntas.setAdapter(adapterPerguntas);
     }
 
 
 
-    public Auditoria verificaTipoPergunta(String pergunta, String pontos, String tipoCliente, String tipoPergunta){
-        Auditoria p = null;
-        Double pontuacao = Double.parseDouble(pontos);
-        TipoClienteEnum tce = verificaTipoCliente(tipoCliente);
 
-        if(tipoPergunta.equals(TipoPerguntaEnum.ativação.toString())){
-            p = new Ativacao(pergunta, pontuacao, tce, TipoPerguntaEnum.ativação);
-        }else if(tipoPergunta.equals(TipoPerguntaEnum.GDM.toString())){
-            p = new GDM(pergunta, pontuacao, tce, TipoPerguntaEnum.GDM);
-        }else if(tipoPergunta.equals(TipoPerguntaEnum.Portifólio.toString())){
-            p = new SKU(pergunta,pontuacao,tce, TipoPerguntaEnum.Portifólio);
-        }else if(tipoPergunta.equals(TipoPerguntaEnum.sovi.toString())){
-            p = new Sovi(pergunta,pontuacao, tce, TipoPerguntaEnum.sovi);
-        }else if(tipoPergunta.equals(TipoPerguntaEnum.preco.toString())){
-            p = new Preco(pergunta, pontuacao, tce, TipoPerguntaEnum.preco);
-        }
-        return p;
-    }
-
-    public TipoClienteEnum verificaTipoCliente(String tipoCliente){
-
-        if(TipoClienteEnum.mercearia.toString().equals(tipoCliente)){
-            return TipoClienteEnum.mercearia;
-        }else if(TipoClienteEnum.AS1a4.toString().equals(tipoCliente)){
-            return TipoClienteEnum.AS1a4;
-        }else if(TipoClienteEnum.bar.toString().equals(tipoCliente)){
-            return TipoClienteEnum.bar;
-        }else if(TipoClienteEnum.lanchonete.toString().equals(tipoCliente)){
-            return TipoClienteEnum.lanchonete;
-        }else if(TipoClienteEnum.restaurante.toString().equals(tipoCliente)){
-            return TipoClienteEnum.restaurante;
-        }else if(TipoClienteEnum.conveniencia.toString().equals(tipoCliente)){
-            return TipoClienteEnum.conveniencia;
-        }else if(TipoClienteEnum.atacado.toString().equals(tipoCliente)){
-            return TipoClienteEnum.atacado;
-        }
-        return null;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -112,12 +66,12 @@ public class CrudPerguntasActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // ação para para opção add do meniu
+
             case R.id.addPergunta:
-                Toast.makeText(this, "Add selecionado", Toast.LENGTH_SHORT)
-                        .show();
+                Intent it = new Intent(this, CadastroPerguntaActivity.class);
+                startActivity(it);
+                preencherListView();
                 break;
-            // ação para opção importar do menu
             case R.id.importPergunta:
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -127,8 +81,10 @@ public class CrudPerguntasActivity extends AppCompatActivity {
                 break;
             // ação para opção apagar tudo do menu
             case R.id.deletPergunta:
-                Toast.makeText(this, "Apagar tudo selecionado", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Apagar tudo", Toast.LENGTH_SHORT)
                         .show();
+                Fachada.getInstance().deletarTudoAuditoria();
+                preencherListView();
                 break;
             default:
                 break;
@@ -147,6 +103,8 @@ public class CrudPerguntasActivity extends AppCompatActivity {
                 uri = data.getData();
                 try {
                     readTextFromUri(uri);
+                    Toast.makeText(this, "Perguntas importadas com sucesso !", Toast.LENGTH_SHORT).show();
+                    preencherListView();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -168,16 +126,16 @@ public class CrudPerguntasActivity extends AppCompatActivity {
             String tipoCliente = dados[2];
             String tipoPergunta = dados[3];
 
-            Auditoria p = verificaTipoPergunta(pergunta,postuacao,tipoCliente, tipoPergunta);
+            Auditoria p = Fachada.getInstance().verificaTipoPergunta(pergunta,postuacao,tipoCliente,tipoPergunta);
 
-            fachada.cadastrarPergunta(p);//Aqui usa o método que fará um insert no banco
+            Fachada.getInstance().cadastrarPergunta(p);
 
-            preencherListView();
+
         }
 
 
-
     }
+
 
 
 }

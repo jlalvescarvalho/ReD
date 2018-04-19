@@ -1,7 +1,7 @@
 package com.example.luciano.red.fachada;
 
 import com.example.luciano.red.negocio.NegocioCliente;
-import com.example.luciano.red.negocio.NegocioPergunta;
+import com.example.luciano.red.negocio.NegocioAuditoria;
 import com.example.luciano.red.negocio.NegocioPesquisa;
 import com.example.luciano.red.negocio.entidade.Cliente;
 import com.example.luciano.red.negocio.entidade.Auditoria;
@@ -16,14 +16,14 @@ import java.util.ArrayList;
 public class Fachada {
 
     private NegocioCliente negocioCliente;
-    private NegocioPergunta negocioPergunta;
+    private NegocioAuditoria negocioAuditoria;
     private NegocioPesquisa negocioPesquisa;
 
     private static Fachada mySelf;
 
     public Fachada() {
         this.negocioCliente = new NegocioCliente();
-        this.negocioPergunta = new NegocioPergunta();
+        this.negocioAuditoria = new NegocioAuditoria();
         this.negocioPesquisa = new NegocioPesquisa();
     }
 
@@ -41,22 +41,33 @@ public class Fachada {
     public ArrayList<Cliente> recuperarTodosClientes(){
         return negocioCliente.recuperarTodos();
     }
+    public void deletarTudoCliente() {
+        negocioCliente.deletarTudo();
+    }
 
     //----------------------
 
     public void cadastrarPergunta(Auditoria auditoria){
-       negocioPergunta.adicionarPergunta(auditoria);
+       negocioAuditoria.adicionarPergunta(auditoria);
     }
 
     public void cadastrarVariasPerguntas(ArrayList<Auditoria> lista){
         for(Auditoria p: lista){
-            negocioPergunta.adicionarPergunta(p);
+            negocioAuditoria.adicionarPergunta(p);
         }
     }
 
     public ArrayList<Auditoria> recuperarTodasPerguntas(){
-        return negocioPergunta.recuperarTodas();
+        return negocioAuditoria.recuperarTodas();
     }
+
+    public Auditoria verificaTipoPergunta(String pergunta, String pontos, String tipoCliente, String tipoPergunta){
+        return negocioAuditoria.verificaTipoPergunta(pergunta,pontos,tipoCliente,tipoPergunta);
+    }
+    public void deletarTudoAuditoria(){
+        negocioAuditoria.deletarTudo();
+    }
+
 
     //------------------------
 
@@ -71,4 +82,6 @@ public class Fachada {
     public ArrayList<Pesquisa> recuperarTodasPesquisas(){
         return negocioPesquisa.recuperarTodas();
     }
+
+
 }

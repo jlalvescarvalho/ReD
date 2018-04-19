@@ -20,11 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ClienteActivity"
-            android:label="Clientes" />
         <activity android:name=".MenuPesquisaActivity" />
-        <activity android:name=".SKUActivity" android:label="Perguntas Portifolio">
+        <activity
+            android:name=".SKUActivity"
+            android:label="Perguntas Portifolio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,16 +41,28 @@
             android:label="Perguntas" />
         <activity
             android:name=".AtivacaoActivity"
-            android:label="Perguntas Ativação"/>
+            android:label="Perguntas Ativação" />
         <activity
             android:name=".GDMActivity"
-            android:label="Perguntas Geladeira"/>
+            android:label="Perguntas Geladeira" />
         <activity
             android:name=".precoActivity"
-            android:label="Perguntas Preço"/>
+            android:label="Perguntas Preço" />
         <activity
             android:name=".SoviActivity"
-            android:label="Perguntas Sovi"/>
+            android:label="Perguntas Sovi" />
+        <activity
+            android:name=".CadastroPerguntaActivity"
+            android:label="Cadastrar Pergunta" />
+        <activity
+            android:name=".ClienteActivity"
+            android:label="@string/title_activity_cliente"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CadastroClienteActivity"
+            android:label="Cadastrar Cliente">
+
+        </activity>
     </application>
 
 </manifest>
