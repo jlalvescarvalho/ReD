@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.example.luciano.red.fachada.Fachada;
-import com.example.luciano.red.negocio.entidade.Auditoria;
+import com.example.luciano.red.negocio.entidade.Cliente;
+import com.example.luciano.red.negocio.entidade.Pergunta;
 
 import java.util.ArrayList;
 
 public class AtivacaoActivity extends AppCompatActivity {
 
-    private Fachada fachada;
+    private Cliente c;
     private ListView listViewPerguntasAtivacao;
 
     @Override
@@ -19,11 +20,11 @@ public class AtivacaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ativacao);
 
-        fachada = new Fachada();
-        ArrayList<Auditoria> lista_auditorias = fachada.recuperarTodasPerguntas();
+
+        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().recuperarTodasPerguntas();
         listViewPerguntasAtivacao = (ListView) findViewById(R.id.listViewAtivacao);
 
-        AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_auditorias, this);
+        AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_perguntas, this, c);
 
         listViewPerguntasAtivacao.setAdapter(listaPersonalizada);
     }

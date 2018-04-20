@@ -1,6 +1,8 @@
 package com.example.luciano.red.negocio.entidade;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable{
 
     private int codigo;
     private String nome;

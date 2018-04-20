@@ -1,11 +1,11 @@
 package com.example.luciano.red.fachada;
 
 import com.example.luciano.red.negocio.NegocioCliente;
+import com.example.luciano.red.negocio.NegocioPergunta;
 import com.example.luciano.red.negocio.NegocioAuditoria;
-import com.example.luciano.red.negocio.NegocioPesquisa;
 import com.example.luciano.red.negocio.entidade.Cliente;
+import com.example.luciano.red.negocio.entidade.Pergunta;
 import com.example.luciano.red.negocio.entidade.Auditoria;
-import com.example.luciano.red.negocio.entidade.Pesquisa;
 
 import java.util.ArrayList;
 
@@ -16,15 +16,15 @@ import java.util.ArrayList;
 public class Fachada {
 
     private NegocioCliente negocioCliente;
+    private NegocioPergunta negocioPergunta;
     private NegocioAuditoria negocioAuditoria;
-    private NegocioPesquisa negocioPesquisa;
 
     private static Fachada mySelf;
 
     public Fachada() {
         this.negocioCliente = new NegocioCliente();
+        this.negocioPergunta = new NegocioPergunta();
         this.negocioAuditoria = new NegocioAuditoria();
-        this.negocioPesquisa = new NegocioPesquisa();
     }
 
     public static Fachada getInstance(){
@@ -47,40 +47,40 @@ public class Fachada {
 
     //----------------------
 
-    public void cadastrarPergunta(Auditoria auditoria){
-       negocioAuditoria.adicionarPergunta(auditoria);
+    public void cadastrarPergunta(Pergunta pergunta){
+       negocioPergunta.adicionarPergunta(pergunta);
     }
 
-    public void cadastrarVariasPerguntas(ArrayList<Auditoria> lista){
-        for(Auditoria p: lista){
-            negocioAuditoria.adicionarPergunta(p);
+    public void cadastrarVariasPerguntas(ArrayList<Pergunta> lista){
+        for(Pergunta p: lista){
+            negocioPergunta.adicionarPergunta(p);
         }
     }
 
-    public ArrayList<Auditoria> recuperarTodasPerguntas(){
-        return negocioAuditoria.recuperarTodas();
+    public ArrayList<Pergunta> recuperarTodasPerguntas(){
+        return negocioPergunta.recuperarTodas();
     }
 
-    public Auditoria verificaTipoPergunta(String pergunta, String pontos, String tipoCliente, String tipoPergunta){
-        return negocioAuditoria.verificaTipoPergunta(pergunta,pontos,tipoCliente,tipoPergunta);
+    public Pergunta verificaTipoPergunta(String pergunta, String pontos, String tipoCliente, String tipoPergunta){
+        return negocioPergunta.verificaTipoPergunta(pergunta,pontos,tipoCliente,tipoPergunta);
     }
     public void deletarTudoAuditoria(){
-        negocioAuditoria.deletarTudo();
+        negocioPergunta.deletarTudo();
     }
 
 
     //------------------------
 
-    public void cadastrarPesquisa(ArrayList<Auditoria> listaAuditorias, Cliente cliente){
-        negocioPesquisa.cadastrarPesquisa(listaAuditorias, cliente);
+    public void cadastrarAuditoria(Auditoria auditoria){
+        negocioAuditoria.cadastrarAuditoria(auditoria);
     }
 
-    public Pesquisa recuperarPesquisa(int id){
-        return negocioPesquisa.recuperarPesquisa(id);
+    public Auditoria recuperarPesquisa(int id){
+        return negocioAuditoria.recuperarPesquisa(id);
     }
 
-    public ArrayList<Pesquisa> recuperarTodasPesquisas(){
-        return negocioPesquisa.recuperarTodas();
+    public ArrayList<Auditoria> recuperarTodasPesquisas(){
+        return negocioAuditoria.recuperarTodas();
     }
 
 

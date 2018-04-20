@@ -1,52 +1,46 @@
 package com.example.luciano.red.negocio.entidade;
 
-public abstract class Auditoria {
+import java.util.ArrayList;
+import java.util.Date;
+
+/**
+ * Created by luciano on 04/04/2018.
+ */
+
+public class Auditoria {
 
     private int id;
-    private String pergunta;
-    private double pontuacao;
-    private boolean resposta;
-    private TipoClienteEnum tipoCliente;
-    private TipoPerguntaEnum tipoPergunta;
+    private Pergunta pergunta;
+    private Cliente cliente;
+    private Date data;
     private int cont = 0;
 
-    public Auditoria(String pergunta, double pontuacao, TipoClienteEnum tipoCliente, TipoPerguntaEnum tipoPergunta) {
-        this.id = ++cont;
+    public Auditoria(Pergunta p, Cliente cliente) {
+        this.cliente = cliente;
+        this.pergunta = p;
+        this.data = new Date();
+        this.id = cont++;
+    }
+
+
+
+    public Date getData() {
+        return data;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Pergunta getPergunta() {
+        return pergunta;
+    }
+
+    public void setPergunta(Pergunta pergunta) {
         this.pergunta = pergunta;
-        this.pontuacao = pontuacao;
-        this.tipoCliente = tipoCliente;
-        this.tipoPergunta = tipoPergunta;
-    }
-
-    public double getPontuacao() {
-        return pontuacao;
-    }
-
-    public void setPontuacao(double pontuacao) {
-        this.pontuacao = pontuacao;
     }
 
     public int getId() {
         return id;
     }
-
-    public String getPergunta() {
-        return pergunta;
-    }
-
-    public boolean getResposta() {
-        return resposta;
-    }
-
-    public void setResposta(boolean resposta) {
-        this.resposta = resposta;
-    }
-
-    @Override
-    public String toString() {
-        return this.pergunta+" ";
-    }
-
-
-
 }

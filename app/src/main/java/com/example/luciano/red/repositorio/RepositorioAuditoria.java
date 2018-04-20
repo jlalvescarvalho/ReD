@@ -10,17 +10,17 @@ import java.util.ArrayList;
 
 public class RepositorioAuditoria {
 
-    private ArrayList<Auditoria> listaAuditorias;
+    ArrayList<Auditoria> listaAuditorias;
 
     public RepositorioAuditoria() {
         this.listaAuditorias = new ArrayList<>();
     }
 
-    public void adicionarPergunta(Auditoria p){
+    public void adicionar(Auditoria p){
         this.listaAuditorias.add(p);
     }
 
-    public Auditoria recuperarPergunta(int id) {
+    public Auditoria recuperarPesquisa(int id){
         for(Auditoria p: listaAuditorias){
             if(p.getId() == id){
                 return p;
@@ -29,31 +29,20 @@ public class RepositorioAuditoria {
         return null;
     }
 
-    public void atualizarPergunta(int indice, Auditoria p){
+    public void atualizarPesquisa(int indice, Auditoria p){
         this.listaAuditorias.set(indice, p);
     }
 
 
-    public void excluirPergunta(Auditoria p){
+    public void excluirPesquisa(Auditoria p){
         if(listaAuditorias.contains(p)){
             listaAuditorias.remove(p);
         }
     }
 
-    public ArrayList<Auditoria> recuperarTodaPerguntas(){
+    public ArrayList<Auditoria> recuperarTodasPesquisas(){
         return this.listaAuditorias;
     }
 
-    public void deletarTudo(){
-        listaAuditorias = new ArrayList<>();
-    }
 
-    public void deletarAuditoria(int id){
-        for(Auditoria p: listaAuditorias){
-            if(p.getId() == id){
-                listaAuditorias.remove(p);
-            }
-        }
-
-    }
 }

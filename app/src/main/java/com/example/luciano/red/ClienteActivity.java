@@ -15,11 +15,13 @@ import android.widget.ListView;
 import com.example.luciano.red.fachada.Fachada;
 import com.example.luciano.red.negocio.entidade.Cliente;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ClienteActivity extends AppCompatActivity {
     private Button btSearch;
     private ListView listViewCliente;
+    private Cliente cliente;
 
 
     @Override
@@ -29,20 +31,20 @@ public class ClienteActivity extends AppCompatActivity {
 
         btSearch = findViewById(R.id.btSearch);
         listViewCliente = findViewById(R.id.lstViewCliente);
+
         ArrayList<Cliente> clientes = Fachada.getInstance().recuperarTodosClientes();
         ArrayAdapter<Cliente> AdapterClientes = new ArrayAdapter<Cliente>(ClienteActivity.this, android.R.layout.simple_list_item_1, clientes);
         listViewCliente.setAdapter(AdapterClientes);
+
         listViewCliente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                cliente = (Cliente) listViewCliente.getItemAtPosition(i);
+
                 Intent it = new Intent(ClienteActivity.this, MenuPesquisaActivity.class);
+                it.putExtra("cliente", cliente);
                 startActivity(it);
             }
         });
-    }
-
-    public void OnClick(View view){
-        Intent it = new Intent(this, MenuPesquisaActivity.class);
-        startActivity(it);
     }
 }

@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.luciano.red.negocio.entidade.Cliente;
+
 public class MenuPesquisaActivity extends AppCompatActivity {
 
     private GridView gridView;
@@ -33,10 +35,13 @@ public class MenuPesquisaActivity extends AppCompatActivity {
     Object [] telas = {SKUActivity.class, AtivacaoActivity.class, SoviActivity.class, GDMActivity.class, precoActivity.class};
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_pesquisa);
+
+        final Cliente cliente = (Cliente)getIntent().getSerializableExtra("cliente");
 
         CustomGrid adapter = new CustomGrid(MenuPesquisaActivity.this, web, imageId);
         gridView = (GridView)findViewById(R.id.gridMenuPesquisa);
@@ -46,6 +51,7 @@ public class MenuPesquisaActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent it = new Intent(MenuPesquisaActivity.this, (Class<Activity>) telas[position]);
+                it.putExtra("cliente", cliente);
                 startActivity(it);
 
             }

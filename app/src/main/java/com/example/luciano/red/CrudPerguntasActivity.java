@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.luciano.red.fachada.Fachada;
-import com.example.luciano.red.negocio.entidade.Auditoria;
+import com.example.luciano.red.negocio.entidade.Pergunta;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -47,8 +47,8 @@ public class CrudPerguntasActivity extends AppCompatActivity {
 
     public void preencherListView(){
 
-        ArrayList<Auditoria> listaAuditorias = Fachada.getInstance().recuperarTodasPerguntas();
-        ArrayAdapter<Auditoria> adapterPerguntas = new ArrayAdapter<Auditoria>(this,android.R.layout.simple_list_item_1, listaAuditorias);
+        ArrayList<Pergunta> listaPerguntas = Fachada.getInstance().recuperarTodasPerguntas();
+        ArrayAdapter<Pergunta> adapterPerguntas = new ArrayAdapter<Pergunta>(this,android.R.layout.simple_list_item_1, listaPerguntas);
         lstPerguntas.setAdapter(adapterPerguntas);
     }
 
@@ -126,7 +126,7 @@ public class CrudPerguntasActivity extends AppCompatActivity {
             String tipoCliente = dados[2];
             String tipoPergunta = dados[3];
 
-            Auditoria p = Fachada.getInstance().verificaTipoPergunta(pergunta,postuacao,tipoCliente,tipoPergunta);
+            Pergunta p = Fachada.getInstance().verificaTipoPergunta(pergunta,postuacao,tipoCliente,tipoPergunta);
 
             Fachada.getInstance().cadastrarPergunta(p);
 

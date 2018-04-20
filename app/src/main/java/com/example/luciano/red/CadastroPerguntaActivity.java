@@ -1,6 +1,5 @@
 package com.example.luciano.red;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.luciano.red.fachada.Fachada;
-import com.example.luciano.red.negocio.entidade.Auditoria;
+import com.example.luciano.red.negocio.entidade.Pergunta;
 import com.example.luciano.red.negocio.entidade.TipoClienteEnum;
 import com.example.luciano.red.negocio.entidade.TipoPerguntaEnum;
 
@@ -56,7 +55,7 @@ public class CadastroPerguntaActivity extends AppCompatActivity {
                 String pergunta = edt_pergunta.getText().toString();
                 String pontuacao = edt_pontuacao.getText().toString();
 
-                Auditoria aud = Fachada.getInstance().verificaTipoPergunta(pergunta,pontuacao,tipoCliente,tipoPergunta);
+                Pergunta aud = Fachada.getInstance().verificaTipoPergunta(pergunta,pontuacao,tipoCliente,tipoPergunta);
 
                 Fachada.getInstance().cadastrarPergunta(aud);
 
