@@ -15,4 +15,5 @@
     <string name="edt_nome_hint">Razão social</string>
     <string name="edt_logradouro_hint">Endereço</string>
     <string name="bt_cancelar">Cancelar</string>
+    <string name="bt_salvar_perguntas">Concluir</string>
 </resources>

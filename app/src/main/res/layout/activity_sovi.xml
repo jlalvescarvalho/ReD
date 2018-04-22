@@ -18,6 +18,6 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:text="@string/btSalvar" />
+        android:text="@string/bt_salvar_perguntas" />
 
 </LinearLayout>

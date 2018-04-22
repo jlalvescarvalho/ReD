@@ -6,7 +6,7 @@ package com.example.luciano.red.negocio.entidade;
 
 public enum TipoClienteEnum {
 
-    AS1a4(524), mercearia(39), lanchonete(534), bar(164), restaurante(525), conveniencia(32), atacado(11);
+    AS1_4(524), Mercearia(39), Lanchonete(534), Bar(164), Restaurante(525), Conveniencia(32), Atacado(11);
 
     private final int subcanal;
 

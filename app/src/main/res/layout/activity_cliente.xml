@@ -15,21 +15,12 @@
 
         <EditText
             android:id="@+id/edtPesquisa"
-            android:layout_width="269dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/btSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_menu_search"
-            android:onClick="OnClick"
-            tools:layout_editor_absoluteX="302dp"
-            tools:layout_editor_absoluteY="0dp" />
     </LinearLayout>
 
     <ListView

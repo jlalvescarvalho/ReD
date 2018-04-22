@@ -6,6 +6,7 @@ import com.example.luciano.red.negocio.NegocioAuditoria;
 import com.example.luciano.red.negocio.entidade.Cliente;
 import com.example.luciano.red.negocio.entidade.Pergunta;
 import com.example.luciano.red.negocio.entidade.Auditoria;
+import com.example.luciano.red.negocio.entidade.Sovi;
 
 import java.util.ArrayList;
 
@@ -51,12 +52,6 @@ public class Fachada {
        negocioPergunta.adicionarPergunta(pergunta);
     }
 
-    public void cadastrarVariasPerguntas(ArrayList<Pergunta> lista){
-        for(Pergunta p: lista){
-            negocioPergunta.adicionarPergunta(p);
-        }
-    }
-
     public ArrayList<Pergunta> recuperarTodasPerguntas(){
         return negocioPergunta.recuperarTodas();
     }
@@ -68,15 +63,27 @@ public class Fachada {
         negocioPergunta.deletarTudo();
     }
 
+    public ArrayList<Pergunta> recuraTodasPerguntasSovi(){
+        return negocioPergunta.recuraTodasPerguntasSovi();
+    }
+
+    public ArrayList<Pergunta> recuraTodasPerguntasSKU(){
+        return negocioPergunta.recuraTodasPerguntasSKU();
+    }
+    public ArrayList<Pergunta> recuraTodasPerguntasPreco(){
+        return negocioPergunta.recuraTodasPerguntasPreco();
+    }
+    public ArrayList<Pergunta> recuraTodasPerguntasGDM(){
+        return negocioPergunta.recuraTodasPerguntasGDM();
+    }
+    public ArrayList<Pergunta> recuraTodasPerguntasAtivacao(){
+        return negocioPergunta.recuraTodasPerguntasAtivacao();
+    }
 
     //------------------------
 
-    public void cadastrarAuditoria(Auditoria auditoria){
-        negocioAuditoria.cadastrarAuditoria(auditoria);
-    }
-
-    public Auditoria recuperarPesquisa(int id){
-        return negocioAuditoria.recuperarPesquisa(id);
+    public void cadastrarAuditoria(int indice, Auditoria auditoria){
+        negocioAuditoria.cadastrarAuditoria(indice, auditoria);
     }
 
     public ArrayList<Auditoria> recuperarTodasPesquisas(){

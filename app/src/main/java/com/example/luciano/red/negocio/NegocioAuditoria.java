@@ -27,12 +27,12 @@ public class NegocioAuditoria {
         return mySelf;
     }
 
-    public void cadastrarAuditoria(Auditoria auditoria){
+    public void cadastrarAuditoria(int indice, Auditoria auditoria){
             if(auditoria.getPergunta().getResposta() == 1){
                 auditoria.getPergunta().setPontuacao(0.0);
             }
 
-        repositorioAuditoria.adicionar(auditoria);
+        repositorioAuditoria.adicionar(indice, auditoria);
     }
 
     public Auditoria recuperarPesquisa(int id){
@@ -42,4 +42,6 @@ public class NegocioAuditoria {
     public ArrayList<Auditoria> recuperarTodas(){
         return repositorioAuditoria.recuperarTodasPesquisas();
     }
+
+
 }

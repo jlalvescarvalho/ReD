@@ -52,10 +52,12 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
 
         //pegando as referencias da view
         TextView txtPergunta = (TextView)v.findViewById(R.id.txt_perguta);
+        TextView txtPontuacao = (TextView)v.findViewById(R.id.txt_Pontuacao);
         final Button btResposta = (Button)v.findViewById(R.id.btResposta);
 
         //populando view
         txtPergunta.setText(pergunta.getPergunta());
+        txtPontuacao.setText(String.valueOf(pergunta.getPontuacao()));
 
         btResposta.setOnClickListener(new View.OnClickListener() {
             int cont = 0;
@@ -64,20 +66,20 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
             public void onClick(View view) {
                 if(cont == 0){
                     btResposta.setText("Sim");
-                    perguntas.get(i).setResposta(0);
+                    pergunta.setResposta(0);
                     cont++;
                 }else if(cont == 1){
                     btResposta.setText("Não");
-                    perguntas.get(i).setResposta(1);
+                    pergunta.setResposta(1);
                     cont++;
                 }else if(cont == 2){
                     btResposta.setText("N/A");
-                    perguntas.get(i).setResposta(2);
+                    pergunta.setResposta(2);
                     cont = 0;
                 }
 
+                salvarPergunta(pergunta, c, i);
             }
-            Auditoria auditoria = new Auditoria(perguntas.get(i), c);
 
         });
 
@@ -85,10 +87,10 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
         return v;
     }
 
-//    public void salvarPergunta(Pergunta p, Cliente c){
-//
-//        Auditoria aud = new Auditoria(p, c);
-//        Fachada.getInstance().cadastrarAuditoria(aud);
-//    }
+    public void salvarPergunta(Pergunta p, Cliente c, int indice){
+
+        Auditoria aud = new Auditoria(p, c);
+        Fachada.getInstance().cadastrarAuditoria(indice, aud);
+    }
 
 }

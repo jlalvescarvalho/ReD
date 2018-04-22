@@ -13,6 +13,13 @@
         android:layout_weight="1"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/txt_Pontuacao"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="13dp"
+        android:layout_weight="0.2" />
+
     <Button
         android:id="@+id/btResposta"
         android:layout_width="wrap_content"

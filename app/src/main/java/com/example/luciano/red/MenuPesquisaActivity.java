@@ -41,7 +41,11 @@ public class MenuPesquisaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_pesquisa);
 
+
+
         final Cliente cliente = (Cliente)getIntent().getSerializableExtra("cliente");
+
+        setTitle(cliente.getNome().toString());
 
         CustomGrid adapter = new CustomGrid(MenuPesquisaActivity.this, web, imageId);
         gridView = (GridView)findViewById(R.id.gridMenuPesquisa);

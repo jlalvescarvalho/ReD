@@ -19,7 +19,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ClienteActivity extends AppCompatActivity {
-    private Button btSearch;
     private ListView listViewCliente;
     private Cliente cliente;
 
@@ -29,7 +28,6 @@ public class ClienteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente);
 
-        btSearch = findViewById(R.id.btSearch);
         listViewCliente = findViewById(R.id.lstViewCliente);
 
         ArrayList<Cliente> clientes = Fachada.getInstance().recuperarTodosClientes();

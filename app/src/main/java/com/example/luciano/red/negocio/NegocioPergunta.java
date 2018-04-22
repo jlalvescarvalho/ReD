@@ -36,11 +36,6 @@ public class NegocioPergunta {
         repositorioPergunta.adicionarPergunta(pergunta);
     }
 
-    public void adicionarVariasPerguntas(ArrayList<Pergunta> lista){
-        for(Pergunta p: lista){
-            repositorioPergunta.adicionarPergunta(p);
-        }
-    }
 
     public ArrayList<Pergunta> recuperarTodas(){
         return repositorioPergunta.recuperarTodaPerguntas();
@@ -67,26 +62,43 @@ public class NegocioPergunta {
 
     public TipoClienteEnum verificaTipoCliente(String tipoCliente){
 
-        if(TipoClienteEnum.mercearia.toString().equals(tipoCliente)){
-            return TipoClienteEnum.mercearia;
-        }else if(TipoClienteEnum.AS1a4.toString().equals(tipoCliente)){
-            return TipoClienteEnum.AS1a4;
-        }else if(TipoClienteEnum.bar.toString().equals(tipoCliente)){
-            return TipoClienteEnum.bar;
-        }else if(TipoClienteEnum.lanchonete.toString().equals(tipoCliente)){
-            return TipoClienteEnum.lanchonete;
-        }else if(TipoClienteEnum.restaurante.toString().equals(tipoCliente)){
-            return TipoClienteEnum.restaurante;
-        }else if(TipoClienteEnum.conveniencia.toString().equals(tipoCliente)){
-            return TipoClienteEnum.conveniencia;
-        }else if(TipoClienteEnum.atacado.toString().equals(tipoCliente)){
-            return TipoClienteEnum.atacado;
+        if(TipoClienteEnum.Mercearia.toString().equals(tipoCliente)){
+            return TipoClienteEnum.Mercearia;
+        }else if(TipoClienteEnum.AS1_4.toString().equals(tipoCliente)){
+            return TipoClienteEnum.AS1_4;
+        }else if(TipoClienteEnum.Bar.toString().equals(tipoCliente)){
+            return TipoClienteEnum.Bar;
+        }else if(TipoClienteEnum.Lanchonete.toString().equals(tipoCliente)){
+            return TipoClienteEnum.Lanchonete;
+        }else if(TipoClienteEnum.Restaurante.toString().equals(tipoCliente)){
+            return TipoClienteEnum.Restaurante;
+        }else if(TipoClienteEnum.Conveniencia.toString().equals(tipoCliente)){
+            return TipoClienteEnum.Conveniencia;
+        }else if(TipoClienteEnum.Atacado.toString().equals(tipoCliente)){
+            return TipoClienteEnum.Atacado;
         }
         return null;
     }
 
     public void deletarTudo(){
         repositorioPergunta.deletarTudo();
+    }
+
+    public ArrayList<Pergunta> recuraTodasPerguntasSovi(){
+        return repositorioPergunta.recuraTodasPerguntasSovi();
+    }
+
+    public ArrayList<Pergunta> recuraTodasPerguntasSKU(){
+        return repositorioPergunta.recuraTodasPerguntasSku();
+    }
+    public ArrayList<Pergunta> recuraTodasPerguntasPreco(){
+        return repositorioPergunta.recuraTodasPerguntasPreco();
+    }
+    public ArrayList<Pergunta> recuraTodasPerguntasGDM(){
+        return repositorioPergunta.recuraTodasPerguntasGDM();
+    }
+    public ArrayList<Pergunta> recuraTodasPerguntasAtivacao(){
+        return repositorioPergunta.recuraTodasPerguntasAtivacao();
     }
 
 }

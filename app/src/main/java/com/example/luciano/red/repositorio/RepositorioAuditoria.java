@@ -16,8 +16,12 @@ public class RepositorioAuditoria {
         this.listaAuditorias = new ArrayList<>();
     }
 
-    public void adicionar(Auditoria p){
-        this.listaAuditorias.add(p);
+    public void adicionar(int indice, Auditoria p){
+        if(listaAuditorias.contains(p)){
+            this.listaAuditorias.set(indice, p);
+        }else {
+            this.listaAuditorias.add(p);
+        }
     }
 
     public Auditoria recuperarPesquisa(int id){
@@ -29,8 +33,9 @@ public class RepositorioAuditoria {
         return null;
     }
 
-    public void atualizarPesquisa(int indice, Auditoria p){
-        this.listaAuditorias.set(indice, p);
+    public void atualizarAuditoria(int indice, Auditoria p){
+
+
     }
 
 
@@ -43,6 +48,7 @@ public class RepositorioAuditoria {
     public ArrayList<Auditoria> recuperarTodasPesquisas(){
         return this.listaAuditorias;
     }
+
 
 
 }

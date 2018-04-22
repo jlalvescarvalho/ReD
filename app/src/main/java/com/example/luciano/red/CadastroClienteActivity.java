@@ -13,8 +13,6 @@ import com.example.luciano.red.fachada.Fachada;
 import com.example.luciano.red.negocio.entidade.Cliente;
 import com.example.luciano.red.negocio.entidade.TipoClienteEnum;
 
-import java.io.IOException;
-
 public class CadastroClienteActivity extends AppCompatActivity {
 
     private EditText edt_codigo;
@@ -41,7 +39,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
         bt_salvar = (Button)findViewById(R.id.bt_salvar_cliente);
         bt_cancelar = (Button)findViewById(R.id.bt_cancelar_cliente);
 
-        subCanais = new String[]{"Sub-Canal", TipoClienteEnum.AS1a4.toString(), TipoClienteEnum.mercearia.toString(), TipoClienteEnum.lanchonete.toString(), TipoClienteEnum.bar.toString(),TipoClienteEnum.restaurante.toString(),TipoClienteEnum.atacado.toString(),TipoClienteEnum.conveniencia.toString()};
+        subCanais = new String[]{"Sub-Canal", TipoClienteEnum.AS1_4.toString(), TipoClienteEnum.Mercearia.toString(), TipoClienteEnum.Lanchonete.toString(), TipoClienteEnum.Bar.toString(),TipoClienteEnum.Restaurante.toString(),TipoClienteEnum.Atacado.toString(),TipoClienteEnum.Conveniencia.toString()};
         cidades = new String[]{"Cidades", "Aguas Belas", "Angelim", "Bom Conselho", "Brejão", "Caetes", "Calçado", "Canhotinho", "Capoeiras", "Correntes", "Garanhuns", "Iati", "Jucati", "Jupi", "Lagoa do Ouro", "Palmeirina", "Paranatama", "Saloá", "São João", "Terezinha"};
 
         final ArrayAdapter<String> AdapterSubCanal = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, subCanais);
@@ -87,20 +85,20 @@ public class CadastroClienteActivity extends AppCompatActivity {
 
     public int verificaSubCanal(String canal){
 
-        if(TipoClienteEnum.AS1a4.toString().equals(canal)){
-            return TipoClienteEnum.AS1a4.getSubcanal();
-        }else if(canal.equals(TipoClienteEnum.mercearia.toString())){
-            return TipoClienteEnum.mercearia.getSubcanal();
-        }else if(canal.equals(TipoClienteEnum.lanchonete.toString())){
-            return TipoClienteEnum.lanchonete.getSubcanal();
-        }else if(canal.equals(TipoClienteEnum.bar.toString())){
-            return TipoClienteEnum.bar.getSubcanal();
-        }else if(canal.equals(TipoClienteEnum.restaurante.toString())){
-            return TipoClienteEnum.restaurante.getSubcanal();
-        }else if(canal.equals(TipoClienteEnum.atacado.toString())){
-            return TipoClienteEnum.atacado.getSubcanal();
-        }else if(canal.equals(TipoClienteEnum.conveniencia.toString())){
-            return TipoClienteEnum.conveniencia.getSubcanal();
+        if(TipoClienteEnum.AS1_4.toString().equals(canal)){
+            return TipoClienteEnum.AS1_4.getSubcanal();
+        }else if(canal.equals(TipoClienteEnum.Mercearia.toString())){
+            return TipoClienteEnum.Mercearia.getSubcanal();
+        }else if(canal.equals(TipoClienteEnum.Lanchonete.toString())){
+            return TipoClienteEnum.Lanchonete.getSubcanal();
+        }else if(canal.equals(TipoClienteEnum.Bar.toString())){
+            return TipoClienteEnum.Bar.getSubcanal();
+        }else if(canal.equals(TipoClienteEnum.Restaurante.toString())){
+            return TipoClienteEnum.Restaurante.getSubcanal();
+        }else if(canal.equals(TipoClienteEnum.Atacado.toString())){
+            return TipoClienteEnum.Atacado.getSubcanal();
+        }else if(canal.equals(TipoClienteEnum.Conveniencia.toString())){
+            return TipoClienteEnum.Conveniencia.getSubcanal();
         }
         return 0;
     }

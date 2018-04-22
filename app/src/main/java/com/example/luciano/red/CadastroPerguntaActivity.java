@@ -36,7 +36,7 @@ public class CadastroPerguntaActivity extends AppCompatActivity {
         spn_subCanal = (Spinner)findViewById(R.id.spn_subCanal);
         btSalvar = (Button)findViewById(R.id.btSalvarPergunta);
         tipoPergunta = new String[]{"Tipo da pergunta",TipoPerguntaEnum.Portifolio.toString(), TipoPerguntaEnum.Ativacao.toString(), TipoPerguntaEnum.Sovi.toString(), TipoPerguntaEnum.Preco.toString(), TipoPerguntaEnum.GDM.toString()};
-        subCanal = new String[]{"Sub-Canal",TipoClienteEnum.AS1a4.toString(), TipoClienteEnum.mercearia.toString(), TipoClienteEnum.lanchonete.toString(), TipoClienteEnum.bar.toString(),TipoClienteEnum.restaurante.toString(),TipoClienteEnum.atacado.toString(),TipoClienteEnum.conveniencia.toString()};
+        subCanal = new String[]{"Sub-Canal",TipoClienteEnum.AS1_4.toString(), TipoClienteEnum.Mercearia.toString(), TipoClienteEnum.Lanchonete.toString(), TipoClienteEnum.Bar.toString(),TipoClienteEnum.Restaurante.toString(),TipoClienteEnum.Atacado.toString(),TipoClienteEnum.Conveniencia.toString()};
 
 
 
