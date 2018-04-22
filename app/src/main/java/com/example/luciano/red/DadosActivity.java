@@ -19,15 +19,21 @@ public class DadosActivity extends AppCompatActivity {
         btPerguntas = (Button)findViewById(R.id.btPerguntas);
         btClientes = (Button)findViewById(R.id.btClientes);
 
-    }
+        btPerguntas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(DadosActivity.this, CrudPerguntasActivity.class);
+                startActivity(it);
+            }
+        });
 
-    public void onClickBtPerguntas(View view){
-        Intent it = new Intent(this, CrudPerguntasActivity.class);
-        startActivity(it);
-    }
+        btClientes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(DadosActivity.this, CrudClienteActivity.class);
+                startActivity(it);
+            }
+        });
 
-    public void onClickBtClientes(View view){
-        Intent it = new Intent(this, CrudClienteActivity.class);
-        startActivity(it);
     }
 }

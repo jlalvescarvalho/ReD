@@ -16,14 +16,12 @@
             android:id="@+id/btPerguntas"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:onClick="onClickBtPerguntas"
             android:text="@string/btPerguntas_name" />
 
         <Button
             android:id="@+id/btClientes"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:onClick="onClickBtClientes"
             android:text="@string/btClientes_name" />
     </LinearLayout>
 </LinearLayout>

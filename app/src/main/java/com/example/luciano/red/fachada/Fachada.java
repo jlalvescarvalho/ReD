@@ -1,6 +1,5 @@
 package com.example.luciano.red.fachada;
 
-import com.example.luciano.red.negocio.CalculoRED;
 import com.example.luciano.red.negocio.NegocioCliente;
 import com.example.luciano.red.negocio.NegocioPergunta;
 import com.example.luciano.red.negocio.NegocioAuditoria;
@@ -24,7 +23,6 @@ public class Fachada {
     private NegocioCliente negocioCliente;
     private NegocioPergunta negocioPergunta;
     private NegocioAuditoria negocioAuditoria;
-    private CalculoRED calculoRED;
 
     private static Fachada mySelf;
 
@@ -32,7 +30,6 @@ public class Fachada {
         this.negocioCliente = new NegocioCliente();
         this.negocioPergunta = new NegocioPergunta();
         this.negocioAuditoria = new NegocioAuditoria();
-        this.calculoRED = new CalculoRED();
     }
 
     public static Fachada getInstance(){
@@ -89,8 +86,8 @@ public class Fachada {
 
     //------------------------
 
-    public void cadastrarAuditoria(int indice, Auditoria auditoria){
-        negocioAuditoria.cadastrarAuditoria(indice, auditoria);
+    public void cadastrarAuditoria(Auditoria auditoria){
+        negocioAuditoria.cadastrarAuditoria(auditoria);
     }
 
     public ArrayList<Auditoria> recuperarTodasPesquisas(){
@@ -100,23 +97,6 @@ public class Fachada {
     //-----------------------
 
     public double calcularNotaPorCliente(int codigo){
-        return calculoRED.calcularNotaPorCliente(codigo);
+        return negocioAuditoria.calcularNotaPorCliente(codigo);
     }
-
-    public ArrayList<Ativacao> retornarPesquiasPorClienteAtivacao(int codigo){
-        return calculoRED.retornarPesquiasPorClienteAtivacao(codigo);
-    }
-    public ArrayList<SKU> retornarPesquiasPorClienteSKU(int codigo){
-        return calculoRED.retornarPesquiasPorClienteSKU(codigo);
-    }
-    public ArrayList<Sovi> retornarPesquiasPorClienteSovi(int codigo){
-        return calculoRED.retornarPesquiasPorClienteSovi(codigo);
-    }
-    public ArrayList<Preco> retornarPesquiasPorClientePreco(int codigo){
-        return calculoRED.retornarPesquiasPorClientePreco(codigo);
-    }
-    public ArrayList<GDM> retornarPesquiasPorClienteGDM(int codigo){
-        return calculoRED.retornarPesquiasPorClienteGDM(codigo);
-    }
-
 }

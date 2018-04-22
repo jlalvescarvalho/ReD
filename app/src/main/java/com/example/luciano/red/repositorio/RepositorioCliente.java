@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class RepositorioCliente {
 
-    private ArrayList<Cliente> listaClientes = new ArrayList<>();
+    private ArrayList<Cliente> listaClientes;
 
     public RepositorioCliente() {
         this.listaClientes = new ArrayList<>();

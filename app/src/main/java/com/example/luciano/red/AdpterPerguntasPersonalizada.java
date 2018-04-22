@@ -78,7 +78,7 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
                     cont = 0;
                 }
 
-                salvarPergunta(pergunta, c, i);
+                salvarPergunta(pergunta, c);
             }
 
         });
@@ -87,10 +87,10 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
         return v;
     }
 
-    public void salvarPergunta(Pergunta p, Cliente c, int indice){
+    public void salvarPergunta(Pergunta p, Cliente c){
 
         Auditoria aud = new Auditoria(p, c);
-        Fachada.getInstance().cadastrarAuditoria(indice, aud);
+        Fachada.getInstance().cadastrarAuditoria(aud);
     }
 
 }

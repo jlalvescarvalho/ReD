@@ -51,7 +51,7 @@ public class AdapterClienteNotaItem extends BaseAdapter {
 
         //Populando view
         txtCliente.setText(c.toString());
-        txtNota.setText(String.valueOf(recuperarNotaCliente(c.getCodigo())));
+        txtNota.setText(String.valueOf(recuperarNotaCliente(c.getCodigo()))+" %");
 
 
         return v;

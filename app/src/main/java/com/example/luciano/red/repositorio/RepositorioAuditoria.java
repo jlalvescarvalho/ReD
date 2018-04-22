@@ -33,11 +33,14 @@ public class RepositorioAuditoria {
         return null;
     }
 
-    public void atualizarAuditoria(int indice, Auditoria p){
-
-
+    public int recuperarIndice(int codigo){
+        for(int i = 0; i < listaAuditorias.size(); i++){
+            if(listaAuditorias.get(i).getCliente().getCodigo() == codigo){
+                return i;
+            }
+        }
+        return -1;
     }
-
 
     public void excluirPesquisa(Auditoria p){
         if(listaAuditorias.contains(p)){
