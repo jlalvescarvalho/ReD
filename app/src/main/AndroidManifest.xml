@@ -20,8 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MenuPesquisaActivity" />
+        <activity android:name=".MenuPesquisaActivity" />
         <activity
             android:name=".SKUActivity"
             android:label="Perguntas Portifolio">
@@ -61,9 +60,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CadastroClienteActivity"
-            android:label="Cadastrar Cliente">
-
-        </activity>
+            android:label="Cadastrar Cliente"></activity>
+        <activity android:name=".NotaClientesActivity"></activity>
     </application>
 
 </manifest>

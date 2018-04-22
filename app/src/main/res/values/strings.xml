@@ -16,4 +16,5 @@
     <string name="edt_logradouro_hint">Endereço</string>
     <string name="bt_cancelar">Cancelar</string>
     <string name="bt_salvar_perguntas">Concluir</string>
+    <string name="bt_Notas">Notas/Relatórios</string>
 </resources>

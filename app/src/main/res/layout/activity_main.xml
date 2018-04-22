@@ -28,6 +28,13 @@
             android:onClick="OnClickBtDados"
             android:text="@string/btDados_name" />
 
+        <Button
+            android:id="@+id/bt_Notas"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:onClick="OnClickBtNotas"
+            android:text="@string/bt_Notas" />
+
     </LinearLayout>
 
 

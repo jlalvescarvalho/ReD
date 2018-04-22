@@ -28,4 +28,8 @@ public class MainActivity extends AppCompatActivity {
         Intent it = new Intent(this, DadosActivity.class);
         startActivity(it);
     }
+    public void OnClickBtNotas(View view){
+        Intent it = new Intent(this, NotaClientesActivity.class);
+        startActivity(it);
+    }
 }

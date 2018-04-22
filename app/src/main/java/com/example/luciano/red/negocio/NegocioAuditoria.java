@@ -30,6 +30,8 @@ public class NegocioAuditoria {
     public void cadastrarAuditoria(int indice, Auditoria auditoria){
             if(auditoria.getPergunta().getResposta() == 1){
                 auditoria.getPergunta().setPontuacao(0.0);
+            }else if(auditoria.getPergunta().getResposta() == 2){
+                auditoria.getPergunta().setPontuacao(0.0);
             }
 
         repositorioAuditoria.adicionar(indice, auditoria);
