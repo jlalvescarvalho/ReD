@@ -8,24 +8,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="582dp"
-        android:background="@drawable/vermelhodegradepp"
+        android:layout_height="match_parent"
+        android:background="@drawable/fundo_main"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-4dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btAuditoria"
             android:layout_width="match_parent"
             android:layout_height="76dp"
+            android:background="@drawable/botao_personalizado_main"
             android:onClick="OnClickBtAuditoria"
+            android:textColor="#FFFFFF"
             android:text="@string/btAuditoria_name" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/bt_Notas"
             android:layout_width="match_parent"
             android:layout_height="76dp"
+            android:background="@drawable/botao_personalizado_main"
             android:onClick="OnClickBtNotas"
+            android:textColor="#FFFFFF"
             android:text="@string/bt_Notas" />
 
     </LinearLayout>

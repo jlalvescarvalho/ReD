@@ -24,7 +24,6 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
     private final ArrayList<Pergunta> perguntas;
     private final Activity act;
     private final Cliente c;
-    private NegocioAuditoria negocioAuditoria;
 
     public AdpterPerguntasPersonalizada(ArrayList<Pergunta> perguntas, Activity act, Cliente cliente) {
         this.perguntas = perguntas;
@@ -69,17 +68,17 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
                 switch (cont){
                     case 0:
                         btResposta.setText("Sim");
-                        negocioAuditoria.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        Fachada.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
                         cont++;
                     break;
                     case 1:
                         btResposta.setText("Não");
-                        negocioAuditoria.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        Fachada.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
                         cont++;
                     break;
                     case 2:
                         btResposta.setText("N/A");
-                        negocioAuditoria.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        Fachada.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
                         cont = 0;
                     break;
                 }

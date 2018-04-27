@@ -96,6 +96,9 @@ public class Fachada {
     public ArrayList<Auditoria> recuperarTodasPesquisas(){
         return negocioAuditoria.recuperarTodas();
     }
+    public void criaListaPerguntasRespondidas(Pergunta p, int resposta, int indice, Cliente c){
+        negocioAuditoria.criaListaPerguntasRespondidas(p,resposta,indice,c);
+    }
 
     //-----------------------
 
