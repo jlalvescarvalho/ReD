@@ -35,6 +35,7 @@ public class MenuPesquisaActivity extends AppCompatActivity {
     Object [] telas = {SKUActivity.class, AtivacaoActivity.class, SoviActivity.class, GDMActivity.class, precoActivity.class};
 
 
+    Cliente cliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class MenuPesquisaActivity extends AppCompatActivity {
 
 
 
-        final Cliente cliente = (Cliente)getIntent().getSerializableExtra("cliente");
+        cliente = (Cliente)getIntent().getSerializableExtra("cliente");
 
         setTitle(cliente.getNome().toString());
 

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.luciano.red.fachada.Fachada;
+import com.example.luciano.red.negocio.NegocioAuditoria;
 import com.example.luciano.red.negocio.entidade.Auditoria;
 import com.example.luciano.red.negocio.entidade.Cliente;
 import com.example.luciano.red.negocio.entidade.Pergunta;
@@ -23,6 +24,7 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
     private final ArrayList<Pergunta> perguntas;
     private final Activity act;
     private final Cliente c;
+    private NegocioAuditoria negocioAuditoria;
 
     public AdpterPerguntasPersonalizada(ArrayList<Pergunta> perguntas, Activity act, Cliente cliente) {
         this.perguntas = perguntas;
@@ -64,33 +66,29 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
 
             @Override
             public void onClick(View view) {
-                if(cont == 0){
-                    btResposta.setText("Sim");
-                    pergunta.setResposta(0);
-                    cont++;
-                }else if(cont == 1){
-                    btResposta.setText("Não");
-                    pergunta.setResposta(1);
-                    cont++;
-                }else if(cont == 2){
-                    btResposta.setText("N/A");
-                    pergunta.setResposta(2);
-                    cont = 0;
+                switch (cont){
+                    case 0:
+                        btResposta.setText("Sim");
+                        negocioAuditoria.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        cont++;
+                    break;
+                    case 1:
+                        btResposta.setText("Não");
+                        negocioAuditoria.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        cont++;
+                    break;
+                    case 2:
+                        btResposta.setText("N/A");
+                        negocioAuditoria.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        cont = 0;
+                    break;
                 }
-
-                salvarPergunta(pergunta, c);
             }
 
         });
 
 
         return v;
-    }
-
-    public void salvarPergunta(Pergunta p, Cliente c){
-
-        Auditoria aud = new Auditoria(p, c);
-        Fachada.getInstance().cadastrarAuditoria(aud);
     }
 
 }

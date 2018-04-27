@@ -7,24 +7,18 @@
 
     <TextView
         android:id="@+id/txt_perguta"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="17dp"
-        android:layout_weight="1"
-        android:textSize="18sp" />
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/txt_Pontuacao"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="13dp"
-        android:layout_weight="0.2" />
+        android:layout_width="50dp"
+        android:layout_height="80dp" />
 
     <Button
         android:id="@+id/btResposta"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="17dp"
-        android:layout_weight="0.3" />
+        android:layout_height="80dp" />
 
 </LinearLayout>

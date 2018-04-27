@@ -89,6 +89,9 @@ public class Fachada {
     public void cadastrarAuditoria(Auditoria auditoria){
         negocioAuditoria.cadastrarAuditoria(auditoria);
     }
+    public void salvarListaPerguntasNoBanco(){
+        negocioAuditoria.salvarPerguntasNoBanco();
+    }
 
     public ArrayList<Auditoria> recuperarTodasPesquisas(){
         return negocioAuditoria.recuperarTodas();

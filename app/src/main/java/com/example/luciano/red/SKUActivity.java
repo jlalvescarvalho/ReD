@@ -39,6 +39,7 @@ public class SKUActivity extends AppCompatActivity {
         btResposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fachada.getInstance().salvarListaPerguntasNoBanco();
                 Toast.makeText(SKUActivity.this, "Respostas salvas com sucesso !", Toast.LENGTH_SHORT).show();
                 finish();
             }

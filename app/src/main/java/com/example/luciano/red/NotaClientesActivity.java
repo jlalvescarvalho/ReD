@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.luciano.red.fachada.Fachada;
+import com.example.luciano.red.negocio.entidade.Auditoria;
 import com.example.luciano.red.negocio.entidade.Cliente;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class NotaClientesActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listView_Clientes_Notas);
         edt_pesquisa = (EditText)findViewById(R.id.edt_pesquisa_cliente_nota);
 
-        ArrayList<Cliente> listaClientes = Fachada.getInstance().recuperarTodosClientes();
+        ArrayList<Auditoria> listaClientes = Fachada.getInstance().recuperarTodasPesquisas();
 
         AdapterClienteNotaItem notaItem = new AdapterClienteNotaItem(listaClientes, this);
         listView.setAdapter(notaItem);

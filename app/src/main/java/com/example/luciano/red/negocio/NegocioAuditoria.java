@@ -1,5 +1,6 @@
 package com.example.luciano.red.negocio;
 
+import com.example.luciano.red.fachada.Fachada;
 import com.example.luciano.red.negocio.entidade.Ativacao;
 import com.example.luciano.red.negocio.entidade.Cliente;
 import com.example.luciano.red.negocio.entidade.GDM;
@@ -20,9 +21,12 @@ public class NegocioAuditoria {
 
     private RepositorioAuditoria repositorioAuditoria;
     private static NegocioAuditoria mySelf;
+    private ArrayList<Pergunta> listaPerguntas;
+    private Cliente cliente;
 
     public NegocioAuditoria() {
         this.repositorioAuditoria = new RepositorioAuditoria();
+        this.listaPerguntas = new ArrayList<>();
     }
 
     public static NegocioAuditoria getInstance(){
@@ -140,6 +144,29 @@ public class NegocioAuditoria {
         }
         return listaGDM;
     }
+
+    public void criaListaPerguntasRespondidas(Pergunta p, int resposta, int position, Cliente c){
+        p.setResposta(resposta);
+        cliente = c;
+
+          if (listaPerguntas.contains(p)) {
+            listaPerguntas.set(position, p);
+          }
+            listaPerguntas.add(position, p);
+
+    }
+
+
+    public void salvarPerguntasNoBanco(){
+        for (int i = 0; i < listaPerguntas.size(); i++){
+            Auditoria aud = new Auditoria(listaPerguntas.get(i), cliente);
+            cadastrarAuditoria(aud);
+        }
+
+        cliente = null;
+        this.listaPerguntas = new ArrayList<>();
+    }
+
 
 
 }

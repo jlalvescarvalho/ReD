@@ -22,13 +22,6 @@
             android:text="@string/btAuditoria_name" />
 
         <Button
-            android:id="@+id/btDados"
-            android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:onClick="OnClickBtDados"
-            android:text="@string/btDados_name" />
-
-        <Button
             android:id="@+id/bt_Notas"
             android:layout_width="match_parent"
             android:layout_height="76dp"
