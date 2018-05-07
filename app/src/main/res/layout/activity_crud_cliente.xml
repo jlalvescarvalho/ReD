@@ -19,14 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="Razão ou código"
             android:inputType="textPersonName" />
-
-        <ImageButton
-            android:id="@+id/imgBt_pesquisa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            app:srcCompat="@android:drawable/ic_menu_search" />
 
     </LinearLayout>
 

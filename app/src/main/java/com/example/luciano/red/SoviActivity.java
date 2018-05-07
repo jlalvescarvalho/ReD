@@ -29,7 +29,7 @@ public class SoviActivity extends AppCompatActivity {
 
         c = (Cliente)getIntent().getSerializableExtra("cliente");
 
-        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().recuraTodasPerguntasSovi();
+        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().retornaPerguntasPorTipoECanal(c.getSubCanal(), "Sovi");
         listViewPerguntasSovi = (ListView) findViewById(R.id.listViewSovi);
 
         AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_perguntas, this, c);
@@ -39,7 +39,6 @@ public class SoviActivity extends AppCompatActivity {
         btResposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fachada.getInstance().salvarListaPerguntasNoBanco();
                 Toast.makeText(SoviActivity.this, "Respostas salvas com sucesso !", Toast.LENGTH_SHORT).show();
                 finish();
             }

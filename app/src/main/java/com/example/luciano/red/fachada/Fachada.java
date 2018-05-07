@@ -46,8 +46,13 @@ public class Fachada {
     public ArrayList<Cliente> recuperarTodosClientes(){
         return negocioCliente.recuperarTodos();
     }
+
     public void deletarTudoCliente() {
         negocioCliente.deletarTudo();
+    }
+
+    public Cliente recuperarCliente(int codigo){
+        return negocioCliente.recuperarCliente(codigo);
     }
 
     //----------------------
@@ -67,42 +72,34 @@ public class Fachada {
         negocioPergunta.deletarTudo();
     }
 
-    public ArrayList<Pergunta> recuraTodasPerguntasSovi(){
-        return negocioPergunta.recuraTodasPerguntasSovi();
+    public ArrayList retornaPerguntasPorTipoECanal(int subCanal, String tipoPergunta){
+        return negocioPergunta.retornaPerguntasPorTipoECanal(subCanal, tipoPergunta);
     }
-
-    public ArrayList<Pergunta> recuraTodasPerguntasSKU(){
-        return negocioPergunta.recuraTodasPerguntasSKU();
-    }
-    public ArrayList<Pergunta> recuraTodasPerguntasPreco(){
-        return negocioPergunta.recuraTodasPerguntasPreco();
-    }
-    public ArrayList<Pergunta> recuraTodasPerguntasGDM(){
-        return negocioPergunta.recuraTodasPerguntasGDM();
-    }
-    public ArrayList<Pergunta> recuraTodasPerguntasAtivacao(){
-        return negocioPergunta.recuraTodasPerguntasAtivacao();
+    public ArrayList retornarPerguntaPorSubCanal(int canal){
+        return negocioPergunta.retornarPerguntaPorSubCanal(canal);
     }
 
     //------------------------
 
-    public void cadastrarAuditoria(Auditoria auditoria){
-        negocioAuditoria.cadastrarAuditoria(auditoria);
-    }
-    public void salvarListaPerguntasNoBanco(){
-        negocioAuditoria.salvarPerguntasNoBanco();
+    public void cadastrarAuditoria(ArrayList<Pergunta> listaPerguntas, Cliente cliente){
+        negocioAuditoria.cadastrarAuditoria(listaPerguntas, cliente);
     }
 
     public ArrayList<Auditoria> recuperarTodasPesquisas(){
         return negocioAuditoria.recuperarTodas();
     }
-    public void criaListaPerguntasRespondidas(Pergunta p, int resposta, int indice, Cliente c){
-        negocioAuditoria.criaListaPerguntasRespondidas(p,resposta,indice,c);
+
+    public void addPerguntaTemp(Pergunta pergunta){
+        negocioAuditoria.addPerguntasTemp(pergunta);
+    }
+
+    public ArrayList<Pergunta> retornarTodasPerguntasTemp(){
+        return negocioAuditoria.retornarTodasPerguntasTemp();
     }
 
     //-----------------------
 
-    public double calcularNotaPorCliente(int codigo){
-        return negocioAuditoria.calcularNotaPorCliente(codigo);
+    public double calcularNotaPorCliente(Cliente cliente){
+        return negocioAuditoria.calcularNotaPorCliente(cliente);
     }
 }

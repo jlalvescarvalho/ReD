@@ -2,7 +2,10 @@ package com.example.luciano.red;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,7 +28,6 @@ import java.util.ArrayList;
 
 public class CrudPerguntasActivity extends AppCompatActivity {
 
-    private ImageButton imgSearch;
     private EditText edtPergunta;
     private ListView lstPerguntas;
     private static final int READ_REQUEST_CODE = 42;
@@ -37,7 +39,9 @@ public class CrudPerguntasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_perguntas);
 
-        imgSearch = (ImageButton)findViewById(R.id.imgSearchPergunta);
+        ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#000000")));
+
         edtPergunta = (EditText)findViewById(R.id.edt_pergunta);
         lstPerguntas = (ListView)findViewById(R.id.lstPerguntas);
 

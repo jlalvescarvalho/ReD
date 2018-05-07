@@ -29,7 +29,7 @@ public class SKUActivity extends AppCompatActivity {
 
         c = (Cliente) getIntent().getSerializableExtra("cliente");
 
-        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().recuraTodasPerguntasSKU();
+        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().retornaPerguntasPorTipoECanal(c.getSubCanal(), "Portifolio");
         listViewPerguntas = (ListView) findViewById(R.id.listPerguntasSKU);
 
         AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_perguntas, this, c);
@@ -39,7 +39,6 @@ public class SKUActivity extends AppCompatActivity {
         btResposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fachada.getInstance().salvarListaPerguntasNoBanco();
                 Toast.makeText(SKUActivity.this, "Respostas salvas com sucesso !", Toast.LENGTH_SHORT).show();
                 finish();
             }

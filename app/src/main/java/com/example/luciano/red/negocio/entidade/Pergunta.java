@@ -22,10 +22,6 @@ public abstract class Pergunta {
         return pontuacao;
     }
 
-    public void setPontuacao(double pontuacao) {
-        this.pontuacao = pontuacao;
-    }
-
     public int getId() {
         return id;
     }
@@ -34,12 +30,20 @@ public abstract class Pergunta {
         return pergunta;
     }
 
-    public int getResposta() {
-        return resposta;
+    public void setResposta(int resposta) {
+
+        if (resposta > 0){ this.pontuacao = 0;}
+
+        this.resposta = resposta;
+
     }
 
-    public void setResposta(int resposta) {
-        this.resposta = resposta;
+    public TipoClienteEnum getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public TipoPerguntaEnum getTipoPergunta() {
+        return tipoPergunta;
     }
 
     @Override

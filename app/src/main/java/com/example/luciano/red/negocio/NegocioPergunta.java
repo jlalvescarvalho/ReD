@@ -1,5 +1,6 @@
 package com.example.luciano.red.negocio;
 
+import com.example.luciano.red.fachada.Fachada;
 import com.example.luciano.red.negocio.entidade.Ativacao;
 import com.example.luciano.red.negocio.entidade.Pergunta;
 import com.example.luciano.red.negocio.entidade.GDM;
@@ -84,21 +85,35 @@ public class NegocioPergunta {
         repositorioPergunta.deletarTudo();
     }
 
-    public ArrayList<Pergunta> recuraTodasPerguntasSovi(){
-        return repositorioPergunta.recuraTodasPerguntasSovi();
+
+
+    public ArrayList retornaPerguntasPorTipoECanal(int subCanal, String tipoPergunta){
+
+        ArrayList<Pergunta> todasPerguntas = recuperarTodas();
+        ArrayList perguntasFiltradas = new ArrayList();
+
+        for (int i = 0; i < todasPerguntas.size(); i++){
+            if(todasPerguntas.get(i).getTipoCliente().getSubcanal() == subCanal){
+                if(tipoPergunta.equals(todasPerguntas.get(i).getTipoPergunta().toString())){
+                    perguntasFiltradas.add(todasPerguntas.get(i));
+                }
+
+            }
+        }
+        return perguntasFiltradas;
     }
 
-    public ArrayList<Pergunta> recuraTodasPerguntasSKU(){
-        return repositorioPergunta.recuraTodasPerguntasSku();
-    }
-    public ArrayList<Pergunta> recuraTodasPerguntasPreco(){
-        return repositorioPergunta.recuraTodasPerguntasPreco();
-    }
-    public ArrayList<Pergunta> recuraTodasPerguntasGDM(){
-        return repositorioPergunta.recuraTodasPerguntasGDM();
-    }
-    public ArrayList<Pergunta> recuraTodasPerguntasAtivacao(){
-        return repositorioPergunta.recuraTodasPerguntasAtivacao();
+    public ArrayList<Pergunta> retornarPerguntaPorSubCanal(int subcanal){
+
+        ArrayList<Pergunta> perguntasPorSubCanal = recuperarTodas();
+        ArrayList<Pergunta> perguntasFiltradasPorSubcanal = new ArrayList<>();
+
+        for (int i = 0; i < perguntasPorSubCanal.size(); i++){
+            if(perguntasPorSubCanal.get(i).getTipoCliente().getSubcanal() == subcanal){
+                    perguntasFiltradasPorSubcanal.add(perguntasPorSubCanal.get(i));
+            }
+        }
+        return perguntasFiltradasPorSubcanal;
     }
 
 }

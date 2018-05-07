@@ -10,37 +10,36 @@ import java.util.Date;
 public class Auditoria {
 
     private int id;
-    private Pergunta pergunta;
-    private Cliente cliente;
+    private ArrayList<Pergunta> perguntasAuditadas;
     private Date data;
+    private Cliente cliente;
     private int cont = 0;
 
-    public Auditoria(Pergunta p, Cliente cliente) {
-        this.cliente = cliente;
-        this.pergunta = p;
+    public Auditoria(ArrayList<Pergunta> perguntasAuditadas, Cliente cliente) {
+        this.id = cont;
+        this.perguntasAuditadas = perguntasAuditadas;
         this.data = new Date();
-        this.id = cont++;
+        this.cliente = cliente;
+        this.cont++;
     }
 
+    public ArrayList<Pergunta> getPerguntasAuditadas() {
+        return perguntasAuditadas;
+    }
 
+    public void setPerguntasAuditadas(ArrayList<Pergunta> perguntasAuditadas) {
+        this.perguntasAuditadas = perguntasAuditadas;
+    }
 
     public Date getData() {
         return data;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public Pergunta getPergunta() {
-        return pergunta;
-    }
-
-    public void setPergunta(Pergunta pergunta) {
-        this.pergunta = pergunta;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 }

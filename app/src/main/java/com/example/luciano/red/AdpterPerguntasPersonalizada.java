@@ -49,7 +49,7 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
     @Override
     public View getView(final int i, View view, ViewGroup viewGroup) {
         View v = act.getLayoutInflater().inflate(R.layout.layout_item_pergunta, viewGroup, false);
-        final Pergunta pergunta = perguntas.get(i);
+        Pergunta pergunta = perguntas.get(i);
 
         //pegando as referencias da view
         TextView txtPergunta = (TextView)v.findViewById(R.id.txt_perguta);
@@ -68,17 +68,17 @@ public class AdpterPerguntasPersonalizada extends BaseAdapter{
                 switch (cont){
                     case 0:
                         btResposta.setText("Sim");
-                        Fachada.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        Fachada.getInstance().addPerguntaTemp(perguntas.get(i));
                         cont++;
                     break;
                     case 1:
                         btResposta.setText("Não");
-                        Fachada.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        Fachada.getInstance().addPerguntaTemp(perguntas.get(i));
                         cont++;
                     break;
                     case 2:
                         btResposta.setText("N/A");
-                        Fachada.getInstance().criaListaPerguntasRespondidas(pergunta, cont,i,c);
+                        Fachada.getInstance().addPerguntaTemp(perguntas.get(i));
                         cont = 0;
                     break;
                 }

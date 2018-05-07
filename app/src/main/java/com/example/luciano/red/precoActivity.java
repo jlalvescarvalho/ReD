@@ -26,10 +26,10 @@ public class precoActivity extends AppCompatActivity {
 
         btResposta = (Button)findViewById(R.id.bt_salvar_preco);
 
-        final Cliente cliente = (Cliente)getIntent().getSerializableExtra("cliente");
+        c = (Cliente)getIntent().getSerializableExtra("cliente");
 
 
-        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().recuraTodasPerguntasPreco();
+        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().retornaPerguntasPorTipoECanal(c.getSubCanal(), "Preco");
         listViewPerguntasPreco = (ListView) findViewById(R.id.listViewPreco);
 
         AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_perguntas, this, c);
@@ -39,7 +39,6 @@ public class precoActivity extends AppCompatActivity {
         btResposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fachada.getInstance().salvarListaPerguntasNoBanco();
                 Toast.makeText(precoActivity.this, "Respostas salvas com sucesso !", Toast.LENGTH_SHORT).show();
                 finish();
             }

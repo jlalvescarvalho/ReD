@@ -28,7 +28,7 @@ public class GDMActivity extends AppCompatActivity {
         c = (Cliente)getIntent().getSerializableExtra("cliente");
 
 
-        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().recuraTodasPerguntasGDM();
+        ArrayList<Pergunta> lista_perguntas = Fachada.getInstance().retornaPerguntasPorTipoECanal(c.getSubCanal(), "GDM");
         listViewPerguntasGMD = (ListView) findViewById(R.id.listViewGMD);
 
         AdpterPerguntasPersonalizada listaPersonalizada = new AdpterPerguntasPersonalizada(lista_perguntas, this, c);
@@ -38,7 +38,6 @@ public class GDMActivity extends AppCompatActivity {
         btResposta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fachada.getInstance().salvarListaPerguntasNoBanco();
                 Toast.makeText(GDMActivity.this, "Respostas salvas com sucesso ! ", Toast.LENGTH_SHORT).show();
                 finish();
             }

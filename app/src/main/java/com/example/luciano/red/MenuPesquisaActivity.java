@@ -6,21 +6,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.luciano.red.fachada.Fachada;
 import com.example.luciano.red.negocio.entidade.Cliente;
+import com.example.luciano.red.negocio.entidade.Pergunta;
+
+import java.util.ArrayList;
 
 public class MenuPesquisaActivity extends AppCompatActivity {
 
     private GridView gridView;
+    private Button btSalvarAuditoria;
 
     String [] web = {
             "SKU",
             "Ativacao",
             "SOVI",
             "GDM",
-            "Preço"
+            "Preco"
 
     };
 
@@ -50,6 +56,8 @@ public class MenuPesquisaActivity extends AppCompatActivity {
 
         CustomGrid adapter = new CustomGrid(MenuPesquisaActivity.this, web, imageId);
         gridView = (GridView)findViewById(R.id.gridMenuPesquisa);
+        btSalvarAuditoria = (Button)findViewById(R.id.btSalvarAuditoria);
+
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -62,6 +70,17 @@ public class MenuPesquisaActivity extends AppCompatActivity {
             }
         });
 
+        btSalvarAuditoria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<Pergunta> listaPErguntasAuditadas = Fachada.getInstance().retornarTodasPerguntasTemp();
+                Fachada.getInstance().cadastrarAuditoria(listaPErguntasAuditadas, cliente);
+                finish();
+                Toast.makeText(MenuPesquisaActivity.this, "Auditoria salva com sucesso !", Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(MenuPesquisaActivity.this, MainActivity.class);
+                startActivity(it);
+            }
+        });
 
 
     }

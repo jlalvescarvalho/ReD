@@ -4,6 +4,7 @@ import com.example.luciano.red.fachada.Fachada;
 import com.example.luciano.red.negocio.entidade.Ativacao;
 import com.example.luciano.red.negocio.entidade.Cliente;
 import com.example.luciano.red.negocio.entidade.GDM;
+import com.example.luciano.red.negocio.entidade.ItemAuditoria;
 import com.example.luciano.red.negocio.entidade.Pergunta;
 import com.example.luciano.red.negocio.entidade.Auditoria;
 import com.example.luciano.red.negocio.entidade.Preco;
@@ -36,17 +37,9 @@ public class NegocioAuditoria {
         return mySelf;
     }
 
-    public void cadastrarAuditoria(Auditoria auditoria){
-
-        int indice = repositorioAuditoria.recuperarIndice(auditoria.getCliente().getCodigo());
-
-            if(auditoria.getPergunta().getResposta() == 1){
-                auditoria.getPergunta().setPontuacao(0.0);
-            }else if(auditoria.getPergunta().getResposta() == 2){
-                auditoria.getPergunta().setPontuacao(0.0);
-            }
-
-        repositorioAuditoria.adicionar(indice, auditoria);
+    public void cadastrarAuditoria(ArrayList<Pergunta> listaPerguntas, Cliente cliente){
+        Auditoria auditoria = new Auditoria(listaPerguntas, cliente);
+        repositorioAuditoria.cadastrarAuditoria(auditoria);
     }
 
     public Auditoria recuperarPesquisa(int id){
@@ -57,115 +50,55 @@ public class NegocioAuditoria {
         return repositorioAuditoria.recuperarTodasPesquisas();
     }
 
-    public double calcularNotaPorCliente(int codigo){
-        ArrayList<Auditoria> listaPesquisas = repositorioAuditoria.recuperarTodasPesquisas();
-        double posiveis = 0.0, realizados = 0.0;
+    public double calcularNotaPorCliente(Cliente cliente){
+        ArrayList<Pergunta> listPerguntasAuditadas = repositorioAuditoria.recuperarPerguntasPorCliente(cliente.getCodigo());
+        double pontosPossiveis = 0.0, pontosRealizados = 0.0;
 
-        for(Auditoria a: listaPesquisas){
-            if(a.getCliente().getCodigo() == codigo) {
-                if (a.getPergunta().getResposta() == 0 || a.getPergunta().getResposta() == 1) {
-                    posiveis += a.getPergunta().getPontuacao();
-                }
-                if (a.getPergunta().getResposta() == 0) {
-                    realizados += a.getPergunta().getPontuacao();
-                }
+        pontosPossiveis = calcularPontosPossiveisCliente(cliente);
+
+        for (int i=0;i < listPerguntasAuditadas.size(); i++){
+            pontosRealizados += listPerguntasAuditadas.get(i).getPontuacao();
+        }
+
+        return (pontosRealizados/pontosPossiveis)*100;
+    }
+
+    private double calcularPontosPossiveisCliente(Cliente c){
+        double soma = 0.0;
+        ArrayList<Pergunta> perguntasCliente = Fachada.getInstance().retornarPerguntaPorSubCanal(c.getSubCanal());
+            for (Pergunta p: perguntasCliente){
+                soma += p.getPontuacao();
+            }
+        return soma;
+    }
+
+
+
+    public int recuperaIdPerguntaTemp(Pergunta p){
+        ArrayList<Pergunta> perguntasTemp = repositorioAuditoria.retornaPerguntasTemp();
+
+        for (int i = 0; i < perguntasTemp.size(); i++){
+            if (perguntasTemp.get(i).getId() == p.getId()){
+                return i;
             }
         }
-
-        return (realizados / posiveis)*100;
-    }
-
-    public ArrayList<Ativacao> retornarPesquiasPorClienteAtivacao(int codigo){
-        ArrayList<Auditoria> listaPesquisas = repositorioAuditoria.recuperarTodasPesquisas();
-        ArrayList<Ativacao> listaAtivacao = new ArrayList<>();
-
-        for (Auditoria a:listaPesquisas) {
-            if(a.getCliente().getCodigo() == codigo) {
-                if(a.getPergunta() instanceof Ativacao){
-                    listaAtivacao.add((Ativacao) a.getPergunta());
-                }
-            }
-        }
-        return listaAtivacao;
-    }
-
-    public ArrayList<SKU> retornarPesquiasPorClienteSKU(int codigo){
-        ArrayList<Auditoria> listaPesquisas = repositorioAuditoria.recuperarTodasPesquisas();
-        ArrayList<SKU> listaSKU = new ArrayList<>();
-
-        for (Auditoria a:listaPesquisas) {
-            if(a.getCliente().getCodigo() == codigo) {
-                if(a.getPergunta() instanceof SKU){
-                    listaSKU.add((SKU) a.getPergunta());
-                }
-            }
-        }
-        return listaSKU;
-    }
-
-    public ArrayList<Sovi> retornarPesquiasPorClienteSovi(int codigo){
-        ArrayList<Auditoria> listaPesquisas = repositorioAuditoria.recuperarTodasPesquisas();
-        ArrayList<Sovi> listaSovi = new ArrayList<>();
-
-        for (Auditoria a:listaPesquisas) {
-            if(a.getCliente().getCodigo() == codigo) {
-                if(a.getPergunta() instanceof Sovi){
-                    listaSovi.add((Sovi) a.getPergunta());
-                }
-            }
-        }
-        return listaSovi;
-    }
-
-    public ArrayList<Preco> retornarPesquiasPorClientePreco(int codigo){
-        ArrayList<Auditoria> listaPesquisas = repositorioAuditoria.recuperarTodasPesquisas();
-        ArrayList<Preco> listaPreco = new ArrayList<>();
-
-        for (Auditoria a:listaPesquisas) {
-            if(a.getCliente().getCodigo() == codigo) {
-                if(a.getPergunta() instanceof Preco){
-                    listaPreco.add((Preco) a.getPergunta());
-                }
-            }
-        }
-        return listaPreco;
-    }
-
-    public ArrayList<GDM> retornarPesquiasPorClienteGDM(int codigo){
-        ArrayList<Auditoria> listaPesquisas = repositorioAuditoria.recuperarTodasPesquisas();
-        ArrayList<GDM> listaGDM = new ArrayList<>();
-
-        for (Auditoria a:listaPesquisas) {
-            if(a.getCliente().getCodigo() == codigo) {
-                if(a.getPergunta() instanceof GDM){
-                    listaGDM.add((GDM) a.getPergunta());
-                }
-            }
-        }
-        return listaGDM;
-    }
-
-    public void criaListaPerguntasRespondidas(Pergunta p, int resposta, int position, Cliente c){
-        p.setResposta(resposta);
-        cliente = c;
-
-          if (listaPerguntas.contains(p)) {
-            listaPerguntas.set(position, p);
-          }
-            listaPerguntas.add(position, p);
-
+        return -1;
     }
 
 
-    public void salvarPerguntasNoBanco(){
-        for (int i = 0; i < listaPerguntas.size(); i++){
-            Auditoria aud = new Auditoria(listaPerguntas.get(i), cliente);
-            cadastrarAuditoria(aud);
-        }
-
-        cliente = null;
-        this.listaPerguntas = new ArrayList<>();
+    public void addPerguntasTemp(Pergunta p){
+        int indice = recuperaIdPerguntaTemp(p);
+        repositorioAuditoria.adicionarPerguntaTemp(indice , p);
     }
+
+    public ArrayList<Pergunta> retornarTodasPerguntasTemp(){
+        return repositorioAuditoria.retornaPerguntasTemp();
+    }
+
+
+
+
+
 
 
 

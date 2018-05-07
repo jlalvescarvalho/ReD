@@ -10,18 +10,33 @@
         android:id="@+id/layoutBT"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/fundo_main1"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btPerguntas"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/botao_personalizado_main"
             android:text="@string/btPerguntas_name" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btClientes"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/botao_personalizado_main"
             android:text="@string/btClientes_name" />
     </LinearLayout>
 </LinearLayout>

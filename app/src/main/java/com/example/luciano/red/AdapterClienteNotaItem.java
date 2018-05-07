@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.luciano.red.fachada.Fachada;
 import com.example.luciano.red.negocio.entidade.Auditoria;
+import com.example.luciano.red.negocio.entidade.Cliente;
 
 import java.util.ArrayList;
 
@@ -51,13 +52,13 @@ public class AdapterClienteNotaItem extends BaseAdapter {
 
         //Populando view
         txtCliente.setText(a.getCliente().toString());
-        txtNota.setText(String.valueOf(recuperarNotaCliente(a.getCliente().getCodigo()))+" %");
+        txtNota.setText(String.valueOf(calcularNotaCliente(a.getCliente()))+" %");
 
 
         return v;
     }
 
-    public double recuperarNotaCliente(int codigo){
-        return Fachada.getInstance().calcularNotaPorCliente(codigo);
+    public double calcularNotaCliente(Cliente c){
+        return Fachada.getInstance().calcularNotaPorCliente(c);
     }
 }
